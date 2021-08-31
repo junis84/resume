@@ -62,6 +62,7 @@ function createWorkingPeriod(startedAtString: string, endedAtString?: string) {
     if (!endedAtString) {
       return {
         periodTitle: `${startedAt.toFormat(DATE_FORMAT.YYYY_DOT_LL)} ~`,
+        endedAt: DateTime.local(),
         isWorking: true,
       };
     }
@@ -83,7 +84,7 @@ function createWorkingPeriod(startedAtString: string, endedAtString?: string) {
       </Col>
       <Col md={12} xs={isWorking ? 5 : 3} className="text-md-right text-center">
         {isWorking ? (
-          <Badge color="primary" className="mr-1">
+          <Badge color="dark" className="mr-1">
             재직 중
           </Badge>
         ) : (

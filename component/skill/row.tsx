@@ -74,7 +74,7 @@ function createBadge(level?: ISkill.Item['level']) {
   const color = (() => {
     switch (level) {
       case 3: {
-        return 'primary';
+        return 'dark';
       }
       case 2: {
         return 'secondary';

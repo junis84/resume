@@ -5,18 +5,18 @@ const article: IArticle.Payload = {
 
   list: [
     {
-      content: "IU's agency announces official online merchandise shop for fans (2020.04.22)",
+      content: 'ATDD(Acceptance Test Driven Development) 로 개발하기',
       href:
-        'https://www.gmanetwork.com/entertainment/celebritylife/news/62342/ius-agency-announces-official-online-merchandise-shop-for-fans/story',
+        'https://deluxe-chanter-879.notion.site/ATDD-Acceptance-Test-Driven-Development-1506d18472a1445aa90cdffe3e35128d',
     },
     {
-      content: 'K-pop star IU donates ₩100 million to doctors for coronavirus relief (2020.02.27)',
-      href: 'http://www.koreabiomed.com/news/articleView.html?idxno=7550',
+      content: '무신사 - “코디” 개발 회고',
+      href: 'https://deluxe-chanter-879.notion.site/f9cc674494334d40a13138677aa3fc4e',
     },
     {
-      content: 'IU donates 100 million KRW after being inspired by her fans (2019.12.30)',
+      content: 'Kotlin Boilerplate',
       href:
-        'https://www.allkpop.com/article/2019/12/iu-donates-to-100-million-krw-after-being-inspired-by-her-fans',
+        'https://deluxe-chanter-879.notion.site/Kotlin-Boilerplate-bfe3922c818f4f989cc74bd25cca4009',
     },
   ],
 };

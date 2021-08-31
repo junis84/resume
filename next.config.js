@@ -5,6 +5,9 @@ const { homepage } = require('./package.json');
 const { NODE_ENV } = process.env;
 
 module.exports = withImages({
+  images: {
+    disableStaticImages: true
+  },
   assetPrefix: (() => {
     if (NODE_ENV === 'production' && homepage) {
       try {

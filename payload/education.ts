@@ -5,16 +5,10 @@ const education: IEducation.Payload = {
 
   list: [
     {
-      title: 'Foo University',
-      subTitle: 'Bar Major Bachelor',
-      startedAt: '2010-03',
-      // endedAt: '2010-02',
-    },
-    {
-      title: 'Foo High School',
-      subTitle: 'Graduated',
-      startedAt: '2007-03',
-      endedAt: '2010-02',
+      title: '성동 고등학교',
+      subTitle: '자연계 졸업',
+      startedAt: '2000-03',
+      endedAt: '2003-02',
     },
   ],
 };
