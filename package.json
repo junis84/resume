@@ -1,12 +1,12 @@
 {
   "name": "resume-nextjs",
-  "lastestUpdatedAt": "2023-02-22",
+  "lastestUpdatedAt": "2024-10-03",
   "version": "1.1.0",
   "description": "Static HTML based RESUME made with next.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env DEBUG=yosume:* next",
+    "dev": "cross-env DEBUG=yosume:* NODE_OPTIONS=--openssl-legacy-provider next",
     "build": "next build",
     "prebuild": "npm install && npm run lint",
     "start": "next start",

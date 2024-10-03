@@ -4,23 +4,99 @@ const project: IProject.Payload = {
   disable: false,
   list: [
     {
-      title: '무신사 커뮤니티 서비스 백엔드 개발',
-      startedAt: '2023-01',
+      title: '무신사 좋아요 데이터베이스 샤딩 처리',
+      startedAt: '2024-10',
       where: '무신사 (Musinsa)',
       descriptions: [
         {
           content: 'API Server',
           weight: 'MEDIUM',
           descriptions: [
-            { content: '텍스트 기반 커뮤니티 API 개발' },
+            {
+              content:
+                '무신사 내 대표적인 서비스인 좋아요 서비스의 단일 테이블 구조로 인한 성능 저하 개선',
+            },
+            { content: 'Apache Shardingsphere 를 활용하여 안정적인 데이터 샤딩 처리 설계' },
+            {
+              content: 'Apache Shardingsphere, AWS ElastiCache, AWS RDS 등의 인프라 활용',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: '무신사 스냅 2.0 백엔드 개발',
+      startedAt: '2024-02',
+      endedAt: '2024-07',
+      where: '무신사 (Musinsa)',
+      descriptions: [
+        {
+          content: 'API Server',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content: '무신사 2.0 과제 중 하나인 스냅 고도화 작업',
+            },
+            { content: 'Kotlin, Spring Boot를 사용하여 개발' },
+            { content: '빠른 작업을 위해 보편적이며 실용적인 Layered Architecture 설계' },
+            { content: '이벤트 드리븐 아키텍쳐 설계: AWS MSK(Kafka)를 통한 이벤트 기반 설계' },
+            { content: '개인화 추천 시스템을 위해 AWS Personalize 도입' },
+            { content: 'AWS ECR, EKS로 서버 구성' },
+            {
+              content:
+                'AWS MSK(Kafka), Elasticsearch, AWS Personalize, AWS ElastiCache, AWS RDS 등의 인프라 활용',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: '무신사 콘텐츠 통합 및 Kotlin 전환 작업',
+      startedAt: '2023-06',
+      endedAt: '2023-12',
+      where: '무신사 (Musinsa)',
+      descriptions: [
+        {
+          content: 'API Server',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content:
+                '무신사 내의 파편화된 스타일 콘텐츠를 통합(코디숍, 코디맵, 브랜드스냅, 스트릿스냅, 유저스냅)',
+            },
+            { content: 'PHP로 작성된 레거시 코드를 Kotlin 으로 전환하는 작업 병행' },
+            { content: '빠른 작업을 위해 보편적이며 실용적인 Layered Architecture 설계' },
+            {
+              content:
+                '지속적인 데이터 통합을 위해 Kafka Connect 를 활용하여 CDC 이벤트를 추적하고 Kafka Streams 로 처리',
+            },
+            { content: 'AWS ECR, EKS로 서버 구성' },
+            {
+              content:
+                'AWS MSK(Kafka), Kafka Connect, Elasticsearch, AWS ElastiCache, AWS RDS 등의 인프라 활용',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: '무신사 패션톡 백엔드 개발',
+      startedAt: '2023-01',
+      endedAt: '2023-04',
+      where: '무신사 (Musinsa)',
+      descriptions: [
+        {
+          content: 'API Server',
+          weight: 'MEDIUM',
+          descriptions: [
+            { content: '패션톡(텍스트 기반 커뮤니티) API 개발' },
             { content: 'Java, Spring Boot를 사용하여 개발' },
             { content: 'TDD 방법론으로 개발: Code 커버리지 80%' },
             { content: '헥사고날 아키텍쳐 설계: Port(in, out) and Adapter를 통한 의존성 분리' },
             { content: '이벤트 드리븐 아키텍쳐 설계: AWS MSK(Kafka)를 통한 이벤트 기반 설계' },
             { content: 'AWS ECR, EKS로 서버 구성' },
             {
-              content:
-                'AWS MSK(Kafka), AWS CloudFront, AWS S3, AWS ElastiCache, AWS RDS 등의 인프라 활용',
+              content: 'AWS MSK(Kafka), Elasticsearch, AWS ElastiCache, AWS RDS 등의 인프라 활용',
             },
           ],
         },
@@ -29,6 +105,7 @@ const project: IProject.Payload = {
     {
       title: '무신사 오퍼월 서비스 백엔드 개발',
       startedAt: '2022-05',
+      endedAt: '2022-07',
       where: '무신사 (Musinsa)',
       descriptions: [
         {
@@ -52,6 +129,7 @@ const project: IProject.Payload = {
     {
       title: '무신사 숏TV 서비스 백엔드 & 백오피스 개발',
       startedAt: '2022-01',
+      endedAt: '2022-03',
       where: '무신사 (Musinsa)',
       descriptions: [
         {

@@ -4,15 +4,15 @@ const backend: ISkill.Skill = {
   category: 'Back-end',
   items: [
     {
-      title: 'PHP',
-      level: 3,
-    },
-    {
       title: 'Kotlin',
       level: 3,
     },
     {
       title: 'Java',
+      level: 3,
+    },
+    {
+      title: 'PHP',
       level: 3,
     },
     {
@@ -25,38 +25,10 @@ const backend: ISkill.Skill = {
     },
     {
       title: 'Go',
-      level: 2,
-    },
-    {
-      title: 'Elastic Search',
-      level: 2,
-    },
-    {
-      title: 'Apache Kafka',
-      level: 2,
-    },
-    {
-      title: 'AWS SNS',
       level: 3,
     },
     {
-      title: 'AWS SQS',
-      level: 3,
-    },
-    {
-      title: 'AWS S3',
-      level: 3,
-    },
-    {
-      title: 'AWS Lambda',
-      level: 3,
-    },
-    {
-      title: 'AWS Step Functions',
-      level: 3,
-    },
-    {
-      title: 'Spring',
+      title: 'Spring Boot',
       level: 3,
     },
     {
@@ -65,6 +37,14 @@ const backend: ISkill.Skill = {
     },
     {
       title: 'Kotest',
+      level: 3,
+    },
+    {
+      title: 'Elasticsearch',
+      level: 3,
+    },
+    {
+      title: 'Apache Kafka',
       level: 3,
     },
   ],
@@ -96,40 +76,19 @@ const devops: ISkill.Skill = {
   category: 'DevOps',
   items: [
     {
-      title: 'Linux',
+      title: 'AWS',
     },
     {
-      title: 'Nginx',
+      title: 'Docker & K8s',
     },
     {
-      title: 'Docker',
+      title: 'Github',
     },
     {
-      title: 'Serverless',
+      title: 'Datadog',
     },
     {
-      title: 'AWS EC2',
-    },
-    {
-      title: 'AWS CloudWatch',
-    },
-    {
-      title: 'AWS CloudFormation',
-    },
-    {
-      title: 'AWS Athena',
-    },
-    {
-      title: 'AWS CloudFront',
-    },
-    {
-      title: 'AWS ECR',
-    },
-    {
-      title: 'AWS EKS',
-    },
-    {
-      title: 'AWS KMS',
+      title: 'Argo CD',
     },
     {
       title: 'Spinnaker',
@@ -150,6 +109,10 @@ const frontend: ISkill.Skill = {
   category: 'Front-end',
   items: [
     {
+      title: 'React',
+      level: 3,
+    },
+    {
       title: 'Vue.js',
       level: 3,
     },
@@ -158,69 +121,15 @@ const frontend: ISkill.Skill = {
       level: 3,
     },
     {
-      title: 'ES6',
-      level: 3,
-    },
-    {
-      title: 'WebPack',
-      level: 3,
-    },
-    {
-      title: 'NPM',
-      level: 3,
-    },
-    {
-      title: 'Yarn',
-      level: 3,
-    },
-    {
-      title: 'Lodash',
-      level: 3,
-    },
-    {
       title: 'Puppeteer',
       level: 3,
-    },
-    {
-      title: 'HTML/CSS',
-      level: 2,
-    },
-  ],
-};
-
-const etc: ISkill.Skill = {
-  category: 'Etc',
-  items: [
-    {
-      title: 'Security',
-    },
-    {
-      title: 'intelliJ IDEA',
-    },
-    {
-      title: 'VS Code',
-    },
-    {
-      title: 'Git',
-    },
-    {
-      title: 'Bitbucket',
-    },
-    {
-      title: 'Jira',
-    },
-    {
-      title: 'Confluence',
-    },
-    {
-      title: 'Slack',
     },
   ],
 };
 
 const skill: ISkill.Payload = {
   disable: false,
-  skills: [backend, database, devops, frontend, etc],
+  skills: [backend, database, devops, frontend],
   tooltip: '1: 기초 수준\n2: 취미 개발 수준\n3: Production 개발 가능 수준',
 };
 
