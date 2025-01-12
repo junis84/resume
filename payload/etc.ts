@@ -5,6 +5,21 @@ const etc: IEtc.Payload = {
 
   list: [
     {
+      title: 'Certified Kubernetes Application Developer (CKAD)',
+      subTitle: 'The Linux Foundation',
+      startedAt: '2025-01',
+    },
+    {
+      title: 'Certified Kubernetes Administrator (CKA)',
+      subTitle: 'The Linux Foundation',
+      startedAt: '2025-01',
+    },
+    {
+      title: '멘사 회원 가입',
+      subTitle: '멘사 테스트 통과 (IQ 148)',
+      startedAt: '2014-04',
+    },
+    {
       title: '멘사 회원 가입',
       subTitle: '멘사 테스트 통과 (IQ 148)',
       startedAt: '2014-04',
