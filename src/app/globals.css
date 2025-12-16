@@ -1,0 +1,197 @@
+/* Pretendard Variable + Inter */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+@import "tailwindcss";
+
+/* CSS Variables for Typography Scale */
+:root {
+  /* Font sizes - 2025 Best Practices */
+  --font-name: 32px;
+  --font-title: 18px;
+  --font-section: 15px;
+  --font-company: 14px;
+  --font-body: 13px;
+  --font-small: 11px;
+  --font-meta: 11px;
+
+  /* Line heights */
+  --leading-tight: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+
+  /* Spacing scale */
+  --section-gap-lg: 28px;
+  --section-gap-md: 20px;
+  --section-gap-sm: 16px;
+}
+
+/* Base styles */
+html {
+  font-family: "Pretendard Variable", "Pretendard", "Inter", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  background-color: #f5f5f4;
+  font-size: var(--font-body);
+  line-height: var(--leading-normal);
+  color: #1C1917;
+}
+
+/* A4 Resume Container */
+.resume-container {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 18mm 20mm;
+  background: white;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+}
+
+/* Page break for multi-page resume */
+.page-break {
+  page-break-before: always;
+  break-before: page;
+  margin-top: 24px;
+  padding-top: 12px;
+}
+
+/* Print styles for A4 optimization */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 12mm 10mm 12mm; /* top right bottom left */
+  }
+
+  /* First page: slightly less top margin since header is there */
+  @page :first {
+    margin-top: 10mm;
+  }
+
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .resume-wrapper {
+    padding: 0 !important;
+  }
+
+  .resume-container {
+    width: 100%;
+    min-height: auto;
+    padding: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure colors print correctly */
+  /* Navy backgrounds */
+  .bg-navy-900 { background-color: #1E3A5F !important; }
+  .bg-navy-800 { background-color: #234B6E !important; }
+  .bg-navy-700 { background-color: #2D5A87 !important; }
+  .bg-navy-100 { background-color: #EDF2F7 !important; }
+  .bg-navy-50 { background-color: #F7FAFC !important; }
+
+  /* Stone backgrounds */
+  .bg-stone-100 { background-color: #F5F5F4 !important; }
+  .bg-stone-50 { background-color: #FAFAF9 !important; }
+  .bg-stone-200 { background-color: #E7E5E4 !important; }
+
+  /* Accent backgrounds */
+  .bg-accent-100 { background-color: #DBEAFE !important; }
+  .bg-accent-50 { background-color: #EFF6FF !important; }
+
+  /* Navy text */
+  .text-navy-900 { color: #1E3A5F !important; }
+  .text-navy-800 { color: #234B6E !important; }
+  .text-navy-700 { color: #2D5A87 !important; }
+  .text-navy-600 { color: #3B6FA0 !important; }
+
+  /* Stone text */
+  .text-stone-900 { color: #1C1917 !important; }
+  .text-stone-800 { color: #292524 !important; }
+  .text-stone-700 { color: #44403C !important; }
+  .text-stone-600 { color: #57534E !important; }
+  .text-stone-500 { color: #78716C !important; }
+  .text-stone-400 { color: #A8A29E !important; }
+  .text-stone-300 { color: #D6D3D1 !important; }
+
+  /* Accent text */
+  .text-accent-700 { color: #1D4ED8 !important; }
+  .text-accent-600 { color: #2563EB !important; }
+
+  /* White text */
+  .text-white { color: #FFFFFF !important; }
+
+  /* Borders */
+  .border-navy-700 { border-color: #2D5A87 !important; }
+  .border-stone-200 { border-color: #E7E5E4 !important; }
+  .border-stone-300 { border-color: #D6D3D1 !important; }
+
+  /* Prevent orphans and widows */
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Keep cards together */
+  .experience-card,
+  .project-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* Screen preview styles */
+@media screen {
+  .resume-wrapper {
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+/* Section spacing utilities */
+.section-primary {
+  margin-bottom: var(--section-gap-lg);
+}
+
+.section-secondary {
+  margin-bottom: var(--section-gap-md);
+}
+
+.section-tertiary {
+  margin-bottom: var(--section-gap-sm);
+}
