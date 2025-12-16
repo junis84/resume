@@ -43,3 +43,6 @@ public/output/*.pdf
 
 # Specify (AI planning tool)
 .specify/
+
+# Claude Code
+.claude/
