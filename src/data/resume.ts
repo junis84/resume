@@ -7,17 +7,17 @@ export const resumeData: Resume = {
     title: "Software Engineer",
     email: "e.junis84@gmail.com",
     githubUrl: "https://github.com/junyeong-ai",
-    totalExperience: "15년 7개월",
-    updatedAt: "2025-12-16",
+    totalExperience: "16년",
+    updatedAt: "2026-02-21",
   },
 
   introduce: {
     paragraphs: [
-      "기술과 협업으로 복잡한 문제를 해결하고, 사용자 경험을 개선하는 데서 보람을 느끼는 백엔드 개발자입니다. 도전을 즐기며, 변화의 흐름 속에서 새로운 기술을 익히고 실제 서비스에 녹여내는 데 큰 보람을 느껴왔습니다.",
-      "최근에는 AI Agent를 활용한 개발/운영 업무 자동화에 깊은 관심을 가지고 있습니다. 반복적인 업무를 자동화하여 팀 생산성을 극대화하고, 개발자가 더 가치 있는 일에 집중할 수 있는 환경을 만드는 것이 목표입니다.",
-      "이러한 관심을 바탕으로 AI Agent가 효율적으로 사용할 수 있는 Rust 기반 CLI 도구들을 직접 개발하여 오픈소스로 공유하고 있으며, Claude Code Skill로 통합하여 자연어 기반 업무 자동화를 실현하고 있습니다. n8n 워크플로우와 연결한 Slack 챗봇 플랫폼을 통해 장애 대응, 코드 리뷰, 이슈 관리 등의 업무를 자동화하는 시스템도 구축했습니다.",
-      "단순히 코드로 문제를 해결하는 것에 머물지 않고, Agile 문화, 테스트 중심 개발(TDD/ATDD), 도메인 주도 설계(DDD) 등의 실천을 통해 지속 가능한 기술 문화 조성에 힘써왔습니다. 내부 세미나, 소모임, 스터디를 자발적으로 이끌며 동료와 함께 성장하는 문화를 만들어가는 일도 소중하게 여기고 있습니다.",
-      "기술과 사람, 서비스가 긴밀하게 연결된 환경에서 주도적으로 변화의 중심에 서는 역할을 지향하며, AI와 자동화 기술을 통해 개발자와 사용자 모두에게 더 나은 경험을 만들어가고 싶습니다.",
+      "16년간 스타트업부터 대규모 패션 플랫폼, 자율주행 전문 기업까지 다양한 도메인에서 백엔드 시스템을 설계하고 운영해왔습니다. PHP 기반 풀스택 개발에서 시작해 Kotlin/Spring Boot 기반 대규모 트래픽 서비스, 그리고 현재 AI Multi-Agent 시스템까지 — 기술의 변화 속에서 한 발 앞서 학습하고 프로덕션에 적용하는 것을 즐기는 개발자입니다.",
+      "최근에는 AI Agent 시스템을 직접 설계하고 서비스에 적용하는 데 집중하고 있습니다. 무신사에서 SageMaker/Bedrock 기반 AI 추천·검색 시스템을 구축한 경험을 바탕으로, Anthropic Orchestrator-Workers, OpenAI Agents Handoffs 등 업계 Multi-Agent 패턴을 참조하여 42dot에서 물류 도메인 특화 AI Assistant를 설계·개발하고 있습니다. IntentClassifier → Planner → SpecialistAgent → Composer → SuggestionAgent 5단계 파이프라인을 통해 도메인별 전문 에이전트가 협업하는 구조를 구현했습니다.",
+      "AI 서비스를 개발하는 과정에서, AI Agent가 효율적으로 사용할 수 있는 Rust 기반 CLI 도구들을 직접 개발하여 오픈소스로 공유하고 있으며, Claude Code Skill로 통합하여 자연어 기반 업무 자동화를 실현하고 있습니다. n8n 워크플로우와 연결한 Slack 챗봇 플랫폼을 통해 장애 대응, 코드 리뷰, 이슈 관리 등의 업무를 자동화하는 시스템도 구축했습니다.",
+      "무신사에서 DDD와 ATDD를 팀에 도입하고, Growth TF에서 실천한 애자일 프로세스를 다른 팀으로 전파하는 등 기술 문화 확산에 힘써왔습니다. 정책 토론 소모임을 운영하며 사내 기술 문서를 체계화했고(Confluence 379 기여), AWS Summit Seoul 2025 발표와 AWS 기술 블로그 기고를 통해 사외에서도 기술 경험을 공유하고 있습니다.",
+      "백엔드 시스템의 깊은 이해 위에 AI와 자동화 기술을 결합하여, 복잡한 도메인 문제를 구조적으로 해결하는 것이 저의 강점입니다. 기술이 코드에서 끝나지 않고 개발자와 사용자 모두의 더 나은 경험으로 이어지는 것을 추구하며, 팀과 조직의 성장에 기여하고 싶습니다.",
     ],
   },
 
@@ -31,8 +31,10 @@ export const resumeData: Resume = {
         { name: "Node.js", level: 3 },
         { name: "TypeScript", level: 3 },
         { name: "Go", level: 3 },
+        { name: "Rust", level: 1 },
         { name: "Python", level: 2 },
         { name: "Spring Boot", level: 3 },
+        { name: "Spring AI", level: 3 },
         { name: "JUnit 5", level: 3 },
         { name: "Kotest", level: 3 },
         { name: "Elasticsearch", level: 3 },
@@ -85,16 +87,19 @@ export const resumeData: Resume = {
       department: "TMS Engineering",
       startDate: "2025-09",
       isCurrent: true,
-      duration: "4개월",
+      duration: "6개월",
       companyInfo: "현대자동차그룹 SDV/자율주행 전문 기업 (700명)",
       highlights: [
         "Capora TMS 2.0 서비스 백엔드 개발 및 런칭",
+        "Capora AI Assistant Multi-Agent Pipeline 아키텍처 설계 및 개발",
+        "Spring AI + AWS Bedrock 기반 도메인 특화 AI 에이전트 시스템 구축",
         "화주사 조직 및 사용자 관리 시스템 설계/구현 (OMS/ADMIN)",
         "외부 배차 시스템 연동 인터페이스 개발",
       ],
       skillKeywords: [
-        "Kotlin", "Spring Boot", "Python", "Rust",
-        "Kafka", "MongoDB", "Elasticsearch", "PostgreSQL", "Datadog",
+        "Kotlin", "Spring Boot", "Spring AI", "AWS Bedrock",
+        "PostgreSQL", "R2DBC", "Redis", "Kafka", "Elasticsearch",
+        "Python", "Rust", "Datadog",
       ],
     },
     {
@@ -104,12 +109,15 @@ export const resumeData: Resume = {
       position: "백엔드 개발자",
       department: "테크 부문 > 스냅 인플루언서 개발팀",
       startDate: "2019-10",
+      endDate: "2025-08",
       isCurrent: false,
-      duration: "5년 8개월",
+      duration: "5년 11개월",
       companyInfo: "패션 기업 (1600명~, 엔지니어링 300명~)",
       highlights: [
         "사용자 Needs에 맞는 사용성 개선과 신규 비즈니스 로직 구현",
         "레거시 청산 및 기존 비즈니스 로직 유지보수",
+        "SageMaker/Bedrock 기반 AI 추천·검색 시스템 구축 (이미지 태깅, 자연어 검색)",
+        "전사 AI Gateway 플랫폼 설계 및 개발",
         "AWS 인프라 활용 및 Event-Driven 기반 아키텍쳐 설계",
         "DDD(Domain Driven Design) 도메인 주도 설계 도입",
         "ATDD(Acceptance Test Driven Development) 개발 방식 도입",
@@ -207,11 +215,35 @@ export const resumeData: Resume = {
 
   projects: [
     {
+      id: "proj-capora-ai-assistant",
+      name: "Capora AI Assistant Multi-Agent 시스템 설계 및 개발",
+      company: "42dot",
+      companyEn: "42dot Inc.",
+      startDate: "2026-01",
+      category: "AI/Multi-Agent System",
+      descriptions: [
+        "물류 TMS 도메인에 특화된 Multi-Agent Pipeline AI Assistant 아키텍처 설계 및 개발",
+        "IntentClassifier → Planner → SpecialistAgent → Composer → SuggestionAgent 5단계 파이프라인 구현",
+        "Spring AI @Tool + AWS Bedrock(Claude) 기반 도메인별 SpecialistAgent(주문/배차/정산/운임/회원) 구현",
+        "Classifier domainHint + routingConfidence 기반 Fast Path 최적화로 단순 도메인 요청 시 Planner LLM 호출 스킵",
+        "ToolSpecRegistry(Single Source of Truth) 패턴으로 도구 정의 중앙화 및 Planner 프롬프트 자동 생성",
+        "ConsensusProtocol(MERGE/VOTE/DEBATE) 기반 다중 에이전트 결과 합의 메커니즘 설계",
+        "ActionRegistry + ActionHandler를 통한 Zero-LLM 직접 실행 시스템으로 비용 0·지연 최소화",
+        "SuggestionAgent가 대화 컨텍스트 + 도구 결과 기반으로 후속 액션을 자동 제안하는 UX 구현",
+        "컴포넌트별 독립 모델 ID(Per-Component Model) 설정으로 A/B 테스트 및 멀티 프로바이더 지원",
+      ],
+      achievements: [
+        { text: "Multi-Agent Pipeline 아키텍처 설계 및 프로덕션 적용", isHighlight: true },
+        { text: "새 도메인 추가 시 파이프라인 코드 변경 없이 SpecialistAgent 확장 가능한 구조 구현", isHighlight: true },
+      ],
+    },
+    {
       id: "proj-capora-tms",
       name: "Capora TMS 2.0 서비스 개발 및 런칭",
       company: "42dot",
       companyEn: "42dot Inc.",
       startDate: "2025-09",
+      endDate: "2025-12",
       category: "TMS/Logistics",
       descriptions: [
         "물류 운송 관리를 위한 Capora TMS 2.0 서비스 백엔드 개발",
@@ -248,6 +280,7 @@ export const resumeData: Resume = {
       company: "무신사",
       companyEn: "Musinsa",
       startDate: "2025-04",
+      endDate: "2025-06",
       category: "AI/NLP 기반 검색 시스템",
       descriptions: [
         "Bedrock과 SageMaker를 활용하여 자연어 쿼리를 임베딩 벡터로 변환",
@@ -264,6 +297,7 @@ export const resumeData: Resume = {
       company: "무신사",
       companyEn: "Musinsa",
       startDate: "2025-03",
+      endDate: "2025-04",
       category: "AI/CV Recommendation System",
       descriptions: [
         "AWS SageMaker를 활용하여 사용자의 스냅 이미지에서 패션 아이템을 자동 디텍션 및 분할",
@@ -288,7 +322,7 @@ export const resumeData: Resume = {
       category: "API Server",
       descriptions: [
         "무신사 내 대표적인 서비스인 좋아요 서비스의 성능을 획기적으로 개선하기 위해 단일 테이블 구조를 최적화",
-        "Apache Shardingsphere를 활용하여 데이터 샤딩을 안정적으로 설계 및 구현",
+        "Apache ShardingSphere를 활용하여 데이터 샤딩을 안정적으로 설계 및 구현",
         "AWS ElastiCache와 RDS를 포함한 다양한 인프라를 활용하여 성능 극대화",
         "데이터베이스 샤딩을 통해 확장성과 성능을 동시에 확보하며, 대규모 트래픽을 안정적으로 처리",
       ],
@@ -296,7 +330,6 @@ export const resumeData: Resume = {
         { text: "쿼리 응답 시간 30% 단축", isHighlight: true },
         { text: "서비스 중단 시간 0% 유지", isHighlight: true },
         { text: "데이터 처리량 50% 증가", isHighlight: true },
-        { text: "시스템 가용성 99.9% 유지", isHighlight: true },
       ],
     },
     {
@@ -314,14 +347,13 @@ export const resumeData: Resume = {
         "AWS MSK(Kafka)를 활용한 이벤트 드리븐 아키텍처 설계",
         "개인화 추천 시스템을 위한 AWS Personalize 도입",
         "AWS ECR, EKS로 안정적인 서버 환경 구축",
-        "AWS MSK(Kafka), Elasticsearch, AWS Personalize, AWS ElastiCache, AWS RDS 등 다양한 인프라 활용",
         "개발 과정에서 CI/CD 파이프라인을 구축하여 자동화된 배포 및 테스트 환경 구현",
       ],
       achievements: [
         { text: "일일 활성 사용자 수 25% 증가", isHighlight: true },
         { text: "추천 클릭률 15% 향상", isHighlight: true },
         { text: "응답 시간 20% 단축", isHighlight: true },
-        { text: "시스템 안정성 99.9% 유지", isHighlight: true },
+        { text: "Event-Driven 아키텍처 도입으로 서비스 간 결합도 감소 및 확장성 확보", isHighlight: true },
       ],
     },
     {
@@ -342,7 +374,7 @@ export const resumeData: Resume = {
       ],
       achievements: [
         { text: "코드 복잡도 감소로 인한 유지보수성 향상", isHighlight: true },
-        { text: "응답 속도 40% 감소", isHighlight: true },
+        { text: "응답 시간 40% 단축", isHighlight: true },
         { text: "시스템 리소스 사용 효율성 20% 향상", isHighlight: true },
         { text: "보안 취약점 해소", isHighlight: true },
       ],
@@ -367,7 +399,7 @@ export const resumeData: Resume = {
         { text: "게시물 작성 수 50% 증가", isHighlight: true },
         { text: "테스트 커버리지 80% 유지", isHighlight: true },
         { text: "에러율 15% 감소", isHighlight: true },
-        { text: "시스템 가용성 99.9% 유지", isHighlight: true },
+        { text: "헥사고날 아키텍처 적용으로 외부 의존성 격리 및 테스트 용이성 확보", isHighlight: true },
       ],
     },
     {
@@ -390,7 +422,7 @@ export const resumeData: Resume = {
         { text: "오퍼월 이용자 수 30% 증가", isHighlight: true },
         { text: "테스트 커버리지 90% 유지", isHighlight: true },
         { text: "응답 시간 20% 단축", isHighlight: true },
-        { text: "보안 강화: 모든 데이터 전송 암호화", isHighlight: true },
+        { text: "DDD 도입으로 바운디드 컨텍스트 기반 도메인 경계 설정 및 유비쿼터스 언어 정립", isHighlight: true },
       ],
     },
     {
@@ -413,7 +445,7 @@ export const resumeData: Resume = {
         { text: "트랜스코딩 시간 50% 단축", isHighlight: true },
         { text: "서비스 이용 만족도 4.5/5", isHighlight: true },
         { text: "시스템 확장성 30% 향상", isHighlight: true },
-        { text: "보안 취약점 20% 감소", isHighlight: true },
+        { text: "S3→SQS→Lambda 비동기 파이프라인으로 대용량 비디오 처리 안정화", isHighlight: true },
       ],
     },
     {
@@ -434,7 +466,7 @@ export const resumeData: Resume = {
         { text: "참여자 수 40% 증가", isHighlight: true },
         { text: "이벤트 기간 중 시스템 다운타임 0%", isHighlight: true },
         { text: "캐싱 효율성 30% 향상", isHighlight: true },
-        { text: "보안 강화: 모든 데이터 전송 암호화", isHighlight: true },
+        { text: "실시간 판매액 전광판 개발로 이벤트 운영 가시성 확보", isHighlight: true },
       ],
     },
     {
@@ -455,8 +487,7 @@ export const resumeData: Resume = {
       achievements: [
         { text: "응답 시간 25% 단축", isHighlight: true },
         { text: "ATDD 방식으로 테스트 커버리지 85% 유지", isHighlight: true },
-        { text: "시스템 안정성 99.9% 유지", isHighlight: true },
-        { text: "보안 취약점 20% 감소", isHighlight: true },
+        { text: "PHP → Java 전환으로 타입 안정성 확보 및 레거시 기술 부채 해소", isHighlight: true },
       ],
     },
     {
@@ -479,7 +510,7 @@ export const resumeData: Resume = {
         { text: "로딩 시간 30% 단축", isHighlight: true },
         { text: "사용자 만족도 4.7/5", isHighlight: true },
         { text: "시스템 확장성 25% 향상", isHighlight: true },
-        { text: "보안 강화: 모든 데이터 전송 암호화", isHighlight: true },
+        { text: "Serverless + IaC로 인프라 운영 비용 절감 및 무중단 배포 실현", isHighlight: true },
       ],
     },
     {
@@ -500,8 +531,7 @@ export const resumeData: Resume = {
       achievements: [
         { text: "초대 성공률 20% 증가", isHighlight: true },
         { text: "애자일 프로세스 개선으로 개발 주기 15% 단축", isHighlight: true },
-        { text: "시스템 가용성 99.9% 유지", isHighlight: true },
-        { text: "보안 취약점 15% 감소", isHighlight: true },
+        { text: "애자일 프로세스를 TF 외 타 팀에 전파하여 조직 문화 개선에 기여", isHighlight: true },
       ],
     },
     {
@@ -522,8 +552,7 @@ export const resumeData: Resume = {
       achievements: [
         { text: "코디 서비스 이용자 수 35% 증가", isHighlight: true },
         { text: "TDD 방식으로 테스트 커버리지 80% 유지", isHighlight: true },
-        { text: "시스템 확장성 20% 향상", isHighlight: true },
-        { text: "보안 강화: 모든 데이터 전송 암호화", isHighlight: true },
+        { text: "Puppeteer E2E 테스트 도입으로 프론트-백엔드 통합 품질 보장", isHighlight: true },
       ],
     },
     // 2020년 무신사 프로젝트 (추가)
