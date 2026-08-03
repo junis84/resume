@@ -12,12 +12,24 @@ export interface Header {
 }
 
 // Introduce (상세 자기소개)
+export interface IntroducePrinciple {
+  label: string; // 한 눈에 읽히는 짧은 제목
+  text: string;
+}
+
 export interface Introduce {
+  lead: string; // 첫 문장 — 가장 크게 노출
+  principles: IntroducePrinciple[]; // 일하는 방식 (스캔 가능한 형태)
   paragraphs: string[];
 }
 
 // Skills / Core Competencies
-export type SkillCategory = "Back-end" | "Database" | "DevOps" | "Front-end";
+export type SkillCategory =
+  | "AI/LLM"
+  | "Back-end"
+  | "Database"
+  | "DevOps"
+  | "Front-end";
 
 export interface Skill {
   name: string;
@@ -62,7 +74,6 @@ export interface Experience {
   companyInfo?: string;
   highlights: string[];
   skillKeywords: string[];
-  isPlaceholder?: boolean; // 42dot placeholder
 }
 
 // ETC (기타 정보)
@@ -75,7 +86,7 @@ export interface EtcItem {
 }
 
 // Publications
-export type PublicationType = "blog" | "conference" | "article";
+export type PublicationType = "blog" | "conference" | "article" | "guide";
 
 export interface Publication {
   id: string;
@@ -83,7 +94,7 @@ export interface Publication {
   type: PublicationType;
   publisher: string;
   date: string;
-  url: string;
+  url?: string; // 사내 콘텐츠 등 외부 공개 URL이 없는 경우 생략
   description?: string;
   highlights?: string[];
 }

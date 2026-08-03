@@ -11,7 +11,7 @@ export function OpenSource({ data, githubUrl }: OpenSourceProps) {
     <section className="section-secondary">
       <SectionTitle>Open Source</SectionTitle>
       {githubUrl && (
-        <p className="text-[11px] text-navy-700 mb-3">
+        <p className="t-detail text-navy-700 mb-2.5">
           <a
             href={githubUrl}
             target="_blank"
@@ -23,14 +23,13 @@ export function OpenSource({ data, githubUrl }: OpenSourceProps) {
         </p>
       )}
 
-      <div className="grid grid-cols-2 gap-2">
+      {/* 채움 카드 18개가 이어지면 회색 격자로 보인다. 얇은 구분선 기반의
+          2열 목록으로 바꿔 개별 프로젝트가 항목으로 읽히게 한다. */}
+      <div className="grid grid-cols-2 gap-x-6">
         {data.map((project) => (
-          <div
-            key={project.id}
-            className="bg-stone-50 rounded-lg p-2.5"
-          >
-            <div className="flex items-center justify-between mb-1">
-              <h3 className="text-[12px] font-semibold text-navy-900">
+          <div key={project.id} className="py-1.5 border-b border-stone-100">
+            <div className="flex items-baseline justify-between gap-2">
+              <h3 className="t-detail font-semibold text-navy-900">
                 <a
                   href={project.url}
                   target="_blank"
@@ -40,22 +39,15 @@ export function OpenSource({ data, githubUrl }: OpenSourceProps) {
                   {project.name}
                 </a>
               </h3>
-              <span className="text-[9px] px-1.5 py-0.5 bg-navy-100 text-navy-700 rounded">
+              <span className="t-meta text-stone-400 shrink-0">
                 {project.language}
               </span>
             </div>
-            <p className="text-[10px] text-stone-600">{project.description}</p>
+            <p className="t-meta text-stone-600 mt-px">{project.description}</p>
             {project.features && project.features.length > 0 && (
-              <div className="flex flex-wrap gap-1 mt-1.5">
-                {project.features.slice(0, 2).map((feature, index) => (
-                  <span
-                    key={index}
-                    className="text-[9px] px-1 py-0.5 bg-stone-200 text-stone-600 rounded"
-                  >
-                    {feature}
-                  </span>
-                ))}
-              </div>
+              <p className="t-meta text-stone-400 mt-px">
+                {project.features.slice(0, 3).join(" · ")}
+              </p>
             )}
           </div>
         ))}

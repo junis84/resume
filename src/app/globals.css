@@ -3,27 +3,38 @@
 
 @import "tailwindcss";
 
-/* CSS Variables for Typography Scale */
+/* ---------------------------------------------------------------------------
+   Type scale — 7 steps, each with one job. Components consume these through the
+   `.t-*` utilities below; no component may hard-code a px size. 10px is the
+   floor (below that, print legibility drops off).
+   --------------------------------------------------------------------------- */
 :root {
-  /* Font sizes - 2025 Best Practices */
-  --font-name: 32px;
-  --font-title: 18px;
-  --font-section: 15px;
-  --font-company: 14px;
-  --font-body: 13px;
-  --font-small: 11px;
-  --font-meta: 11px;
+  --fs-name: 32px; /* 이름 */
+  --fs-title: 17px; /* 직함 */
+  --fs-section: 15px; /* 섹션 제목 */
+  --fs-subhead: 13px; /* 회사명 · 프로젝트명 · 리드문 */
+  --fs-body: 12px; /* 본문 */
+  --fs-detail: 11px; /* 불릿 · 성과 */
+  --fs-meta: 10px; /* 날짜 · 칩 · 캡션 (최소 크기) */
 
   /* Line heights */
   --leading-tight: 1.3;
   --leading-normal: 1.5;
-  --leading-relaxed: 1.6;
+  --leading-relaxed: 1.7;
 
   /* Spacing scale */
   --section-gap-lg: 28px;
   --section-gap-md: 20px;
   --section-gap-sm: 16px;
 }
+
+.t-name    { font-size: var(--fs-name);    line-height: var(--leading-tight); }
+.t-title   { font-size: var(--fs-title);   line-height: var(--leading-tight); }
+.t-section { font-size: var(--fs-section); line-height: var(--leading-tight); }
+.t-subhead { font-size: var(--fs-subhead); line-height: var(--leading-normal); }
+.t-body    { font-size: var(--fs-body);    line-height: var(--leading-normal); }
+.t-detail  { font-size: var(--fs-detail);  line-height: var(--leading-normal); }
+.t-meta    { font-size: var(--fs-meta);    line-height: var(--leading-normal); }
 
 /* Base styles */
 html {
@@ -35,7 +46,7 @@ html {
 
 body {
   background-color: #f5f5f4;
-  font-size: var(--font-body);
+  font-size: var(--fs-body);
   line-height: var(--leading-normal);
   color: #1C1917;
 }
@@ -114,9 +125,9 @@ body {
   .bg-stone-50 { background-color: #FAFAF9 !important; }
   .bg-stone-200 { background-color: #E7E5E4 !important; }
 
-  /* Accent backgrounds */
-  .bg-accent-100 { background-color: #DBEAFE !important; }
-  .bg-accent-50 { background-color: #EFF6FF !important; }
+  /* Accent backgrounds (emerald — 성과 전용) */
+  .bg-accent-100 { background-color: #D1FAE5 !important; }
+  .bg-accent-50 { background-color: #ECFDF5 !important; }
 
   /* Navy text */
   .text-navy-900 { color: #1E3A5F !important; }
@@ -133,9 +144,9 @@ body {
   .text-stone-400 { color: #A8A29E !important; }
   .text-stone-300 { color: #D6D3D1 !important; }
 
-  /* Accent text */
-  .text-accent-700 { color: #1D4ED8 !important; }
-  .text-accent-600 { color: #2563EB !important; }
+  /* Accent text (emerald — 성과 전용) */
+  .text-accent-700 { color: #047857 !important; }
+  .text-accent-600 { color: #059669 !important; }
 
   /* White text */
   .text-white { color: #FFFFFF !important; }
@@ -151,14 +162,30 @@ body {
     widows: 3;
   }
 
-  /* Keep cards together */
+  /* Keep individual cards together — a card is always shorter than a page */
   .experience-card,
   .project-card {
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
-  section {
+  /* NOTE: `break-inside: avoid` is intentionally NOT applied to `section`.
+     Projects/Experience are several pages tall, so the rule cannot be honoured
+     and only pushes each section onto a fresh page, wasting the tail of the
+     previous one. Card-level avoidance above is what actually keeps content
+     readable across page boundaries. */
+
+  /* Section headings should not be stranded at the bottom of a page */
+  section > h2 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Short sections that must never split — each is well under one page */
+  .competencies,
+  .certifications,
+  .education,
+  .etc {
     break-inside: avoid;
     page-break-inside: avoid;
   }

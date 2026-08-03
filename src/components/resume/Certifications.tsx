@@ -7,23 +7,21 @@ interface CertificationsProps {
 
 export function Certifications({ data }: CertificationsProps) {
   return (
-    <section className="section-tertiary">
+    <section className="section-tertiary certifications">
       <SectionTitle>Certifications</SectionTitle>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-x-6">
         {data.map((cert) => (
           <div
             key={cert.id}
-            className="flex items-center justify-between p-2.5 bg-stone-50 rounded-lg"
+            className="flex items-baseline justify-between gap-2 py-1.5 border-b border-stone-100"
           >
             <div>
-              <span className="text-[12px] text-stone-900 font-medium">
+              <span className="t-detail text-stone-900 font-medium">
                 {cert.name}
               </span>
-              <p className="text-[10px] text-stone-500">{cert.issuer}</p>
+              <p className="t-meta text-stone-500">{cert.issuer}</p>
             </div>
-            <span className="text-[10px] text-navy-700 font-medium">
-              {cert.date}
-            </span>
+            <span className="t-meta text-stone-500 shrink-0">{cert.date}</span>
           </div>
         ))}
       </div>

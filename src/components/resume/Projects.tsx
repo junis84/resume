@@ -18,49 +18,46 @@ export function Projects({ data }: ProjectsProps) {
             endDate={project.endDate}
           >
             <div className="project-card">
-              <div className="mb-2">
-                <h4 className="text-[13px] font-semibold text-navy-900">
+              <div className="mb-1.5">
+                <h4 className="t-subhead font-semibold text-navy-900">
                   {project.name}
                 </h4>
-                <div className="flex items-center gap-2 mt-0.5">
-                  <span className="text-[11px] text-stone-500">
-                    {project.company}
-                  </span>
-                  <span className="px-1.5 py-0.5 text-[10px] bg-stone-100 text-stone-600 rounded">
-                    {project.category}
-                  </span>
-                </div>
+                {/* 회사 · 분류를 한 줄 메타로. 분류를 회색 배지로 감싸면
+                    페이지마다 배지가 28개 반복돼 성과 표기와 경쟁한다. */}
+                <p className="t-meta text-stone-500 mt-0.5">
+                  {project.company}
+                  <span className="text-stone-300"> · </span>
+                  {project.category}
+                </p>
               </div>
 
-              <ul className="space-y-0.5 mb-2">
+              <ul className="space-y-0.5 mb-1.5">
                 {project.descriptions.map((desc, index) => (
-                  <li key={index} className="text-[11px] text-stone-700 flex">
-                    <span className="text-stone-400 mr-2">•</span>
+                  <li key={index} className="t-detail text-stone-700 flex">
+                    <span className="text-stone-300 mr-2">·</span>
                     <span>{desc}</span>
                   </li>
                 ))}
               </ul>
 
               {project.achievements && project.achievements.length > 0 && (
-                <div className="pt-2 border-t border-stone-100">
-                  <ul className="space-y-0.5">
-                    {project.achievements.map((achievement, index) => (
-                      <li
-                        key={index}
-                        className={`text-[11px] flex items-start ${
-                          achievement.isHighlight
-                            ? "text-accent-700 font-medium"
-                            : "text-stone-600"
-                        }`}
-                      >
-                        <span className="mr-2">
-                          {achievement.isHighlight ? "✓" : "•"}
-                        </span>
-                        <span>{achievement.text}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-0.5">
+                  {project.achievements.map((achievement, index) => (
+                    <li
+                      key={index}
+                      className={`t-detail flex items-start ${
+                        achievement.isHighlight
+                          ? "text-accent-700 font-medium"
+                          : "text-stone-600"
+                      }`}
+                    >
+                      <span className="mr-2 shrink-0">
+                        {achievement.isHighlight ? "→" : "·"}
+                      </span>
+                      <span>{achievement.text}</span>
+                    </li>
+                  ))}
+                </ul>
               )}
             </div>
           </TimelineItem>

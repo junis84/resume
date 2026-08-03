@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": 'attachment; filename="resume-junyoung-eom.pdf"',
+        "Content-Disposition": 'attachment; filename="resume-junyeong-eom.pdf"',
         "Content-Length": pdfBuffer.length.toString(),
       },
     });

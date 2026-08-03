@@ -28,9 +28,6 @@ export default function ResumePage() {
         {/* Experience - 경력 사항 (타임라인) */}
         <Experience data={resumeData.experience} />
 
-        {/* Page break for print */}
-        <div className="page-break" />
-
         {/* Projects - 상세 프로젝트 (성과 체크마크) */}
         <Projects data={resumeData.projects} />
 
@@ -58,7 +55,7 @@ export default function ResumePage() {
         <a
           href="/api/pdf"
           className="px-6 py-2.5 bg-navy-900 text-white rounded-lg hover:bg-navy-800 transition-colors inline-block font-medium text-[13px]"
-          download="resume-junyoung-eom.pdf"
+          download="resume-junyeong-eom.pdf"
         >
           PDF 다운로드
         </a>

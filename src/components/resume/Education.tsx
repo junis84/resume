@@ -12,25 +12,23 @@ export function Education({ data }: EducationProps) {
   };
 
   return (
-    <section className="section-tertiary">
+    <section className="section-tertiary education">
       <SectionTitle>Education</SectionTitle>
-      <div className="space-y-2">
+      <div>
         {data.map((edu) => (
           <div
             key={edu.id}
-            className="flex items-center justify-between py-2 border-b border-stone-100 last:border-0"
+            className="flex items-baseline justify-between gap-2 py-1.5 border-b border-stone-100 last:border-0"
           >
             <div>
-              <span className="text-[13px] text-stone-900 font-medium">
+              <span className="t-detail text-stone-900 font-medium">
                 {edu.institution}
               </span>
               {edu.field && (
-                <span className="text-[11px] text-stone-500 ml-2">
-                  | {edu.field}
-                </span>
+                <span className="t-meta text-stone-500 ml-2">{edu.field}</span>
               )}
             </div>
-            <span className="text-[11px] text-stone-500">
+            <span className="t-meta text-stone-500 shrink-0">
               {formatDate(edu.startDate)} ~ {formatDate(edu.endDate)} ({edu.status})
             </span>
           </div>

@@ -23,27 +23,31 @@ export function TimelineItem({
 
   return (
     <div className="relative flex gap-4">
-      {/* Timeline sidebar */}
-      <div className="flex flex-col items-center w-24 flex-shrink-0">
-        <div className="text-[10px] text-stone-500 font-medium text-right w-full">
+      {/* Timeline sidebar — 날짜 / 기간 / 재직 여부를 한 축으로 우측 정렬.
+          이전에는 날짜·알약 배지·[대괄호 기간]이 각기 다른 정렬과 크기로
+          쌓여 있어 사이드바가 본문보다 시끄러웠다. */}
+      <div className="w-24 flex-shrink-0 text-right">
+        <div className="t-meta text-stone-600 font-medium">
           {formatDate(date)}
           {endDate && ` ~ ${formatDate(endDate)}`}
-          {isCurrent && " ~"}
+          {isCurrent && " ~ 현재"}
         </div>
-        {isCurrent && (
-          <span className="mt-1 px-1.5 py-0.5 text-[9px] font-medium bg-navy-100 text-navy-700 rounded">
-            재직 중
-          </span>
-        )}
         {duration && (
-          <span className="mt-1 text-[9px] text-stone-400">[{duration}]</span>
+          <div className="t-meta text-stone-400">{duration}</div>
         )}
       </div>
 
-      {/* Timeline line and dot */}
+      {/* Timeline line and dot — 현재 진행 중인 항목만 채운 점으로 구분한다
+          ("재직 중" 배지를 대신하는 신호) */}
       <div className="flex flex-col items-center">
-        <div className="w-2 h-2 rounded-full bg-navy-700 mt-1" />
-        <div className="w-0.5 flex-1 bg-stone-200 -mt-0.5" />
+        <div
+          className={`w-1.5 h-1.5 rounded-full mt-[5px] ${
+            isCurrent
+              ? "bg-navy-700 ring-2 ring-navy-100"
+              : "bg-white border border-stone-300"
+          }`}
+        />
+        <div className="w-px flex-1 bg-stone-200 mt-0.5" />
       </div>
 
       {/* Content */}

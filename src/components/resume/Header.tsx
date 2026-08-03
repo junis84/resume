@@ -20,26 +20,27 @@ export function Header({ data }: HeaderProps) {
     <header className="mb-7 pb-5 border-b border-stone-200">
       <div className="flex justify-between items-start">
         <div>
-          <h1 className="text-[32px] font-bold text-navy-900 tracking-tight">
+          <h1 className="t-name font-bold text-navy-900 tracking-tight">
             {nameKo}
             <span className="text-stone-500 font-normal ml-2">({nameEn})</span>
           </h1>
-          <p className="text-[17px] text-stone-700 mt-1">{title}</p>
+          <p className="t-title text-stone-700 mt-1">{title}</p>
         </div>
+        {/* 총 경력: 짙은 알약 배지 대신 타이포로만 — 배지는 스티커처럼 보인다 */}
         <div className="text-right">
-          <div className="px-4 py-2 bg-navy-900 text-white rounded-lg">
-            <span className="text-[12px]">총 경력</span>
-            <span className="text-[15px] font-bold ml-2">{totalExperience}</span>
-          </div>
+          <p className="t-meta text-stone-500 uppercase tracking-widest">
+            총 경력
+          </p>
+          <p className="t-title font-semibold text-navy-900 mt-0.5">
+            {totalExperience}
+          </p>
           {updatedAt && (
-            <p className="text-[10px] text-stone-400 mt-1.5">
-              Updated: {updatedAt}
-            </p>
+            <p className="t-meta text-stone-400 mt-1">Updated {updatedAt}</p>
           )}
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center gap-4 mt-4 text-[12px] text-stone-600">
+      <div className="flex flex-wrap items-center gap-4 mt-4 t-body text-stone-600">
         <a
           href={`mailto:${email}`}
           className="hover:text-navy-700 transition-colors"
