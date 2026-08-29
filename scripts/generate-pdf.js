@@ -1,72 +1,44 @@
 #!/usr/bin/env node
 
-const puppeteer = require("puppeteer");
 const path = require("path");
-const fs = require("fs");
+const fs = require("fs/promises");
+
+const documents = [
+  {
+    key: "resume",
+    filename: "junyeong-eom-resume-career-history.pdf",
+  },
+  {
+    key: "portfolio",
+    filename: "junyeong-eom-ai-engineering-portfolio.pdf",
+  },
+];
 
 async function generatePDF() {
   const outputDir = path.join(__dirname, "..", "public", "output");
-  const outputPath = path.join(outputDir, "resume.pdf");
+  await fs.mkdir(outputDir, { recursive: true });
 
-  // 출력 디렉토리 생성
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-  }
+  const baseUrl = process.env.RESUME_URL || "http://localhost:3000";
+  console.log("🚀 통합 PDF 2종 생성 시작...");
 
-  console.log("🚀 PDF 생성 시작...");
+  for (const document of documents) {
+    const apiUrl = new URL("/api/pdf", baseUrl);
+    apiUrl.searchParams.set("document", document.key);
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+    console.log(`📄 생성 중: ${document.filename}`);
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error(`${document.key} PDF 생성 실패 (${response.status})`);
+    }
 
-  try {
-    const page = await browser.newPage();
-
-    // A4 크기로 뷰포트 설정
-    await page.setViewport({
-      width: 794,
-      height: 1123,
-      deviceScaleFactor: 2,
-    });
-
-    // 로컬 개발 서버 URL (기본 포트 3000)
-    const url = process.env.RESUME_URL || "http://localhost:3000";
-    console.log(`📄 페이지 로딩: ${url}`);
-
-    await page.goto(url, {
-      waitUntil: "networkidle0",
-      timeout: 30000,
-    });
-
-    // 폰트 로딩 대기
-    await page.waitForFunction(
-      () => document.fonts.ready.then(() => true),
-      { timeout: 10000 }
-    );
-
-    console.log("📝 PDF 생성 중...");
-
-    // PDF 생성
-    await page.pdf({
-      path: outputPath,
-      format: "A4",
-      printBackground: true,
-      margin: {
-        top: "0.85cm",
-        right: "0.85cm",
-        bottom: "0.85cm",
-        left: "0.85cm",
-      },
-    });
-
-    console.log(`✅ PDF 생성 완료: ${outputPath}`);
-  } catch (error) {
-    console.error("❌ PDF 생성 실패:", error.message);
-    process.exit(1);
-  } finally {
-    await browser.close();
+    const outputPath = path.join(outputDir, document.filename);
+    const pdfBuffer = Buffer.from(await response.arrayBuffer());
+    await fs.writeFile(outputPath, pdfBuffer);
+    console.log(`✅ 생성 완료: ${outputPath}`);
   }
 }
 
-generatePDF();
+generatePDF().catch((error) => {
+  console.error("❌ PDF 생성 실패:", error.message);
+  process.exit(1);
+});

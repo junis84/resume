@@ -7,6 +7,7 @@ export interface Header {
   phone?: string;
   githubUrl: string;
   linkedinUrl?: string;
+  portfolioUrl?: string;
   totalExperience: string;
   updatedAt: string;
 }
@@ -21,14 +22,24 @@ export interface Introduce {
   lead: string; // 첫 문장 — 가장 크게 노출
   principles: IntroducePrinciple[]; // 일하는 방식 (스캔 가능한 형태)
   paragraphs: string[];
+  proofPoints?: ProofPoint[];
+}
+
+export interface ProofPoint {
+  value: string;
+  label: string;
+  detail?: string;
 }
 
 // Skills / Core Competencies
 export type SkillCategory =
   | "AI/LLM"
+  | "Backend"
   | "Back-end"
   | "Database"
   | "DevOps"
+  | "Platform"
+  | "Frontend"
   | "Front-end";
 
 export interface Skill {
@@ -58,6 +69,9 @@ export interface Project {
   descriptions: string[];
   achievements?: ProjectAchievement[];
   technologies?: string[];
+  role?: string;
+  portfolioUrl?: string;
+  snapshot?: string;
 }
 
 // Experience
@@ -117,6 +131,7 @@ export interface Certification {
   date: string;
   credentialId?: string;
   url?: string;
+  kind?: "certification" | "membership";
 }
 
 // Education

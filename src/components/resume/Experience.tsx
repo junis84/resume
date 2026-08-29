@@ -10,9 +10,9 @@ interface ExperienceProps {
 /**
  * 성과의 크기를 나타내는 수치(30%, 2배)만 강조한다.
  *
- * 이전에는 맨숫자까지 잡아서 "Capora TMS 2.0"의 버전, "18종"·"9종"의 개수가
+ * 이전에는 맨숫자까지 잡아서 "Capora TMS 2.0"의 버전이나 채점기 개수가
  * 성과처럼 칠해졌다. 개수와 버전은 크기가 아니므로 강조 대상이 아니다.
- * 앞뒤가 영문·숫자인 경우(A2A, NL2SQL)도 제외한다.
+ * 앞뒤가 영문·숫자인 경우(A2A 같은 약어)도 제외한다.
  */
 const MAGNITUDE = /((?<![A-Za-z0-9.])\d+(?:\.\d+)?(?:%|배)(?![A-Za-z0-9]))/g;
 
@@ -30,7 +30,7 @@ function highlightMagnitude(text: string): React.ReactNode {
 
 export function Experience({ data }: ExperienceProps) {
   return (
-    <section className="section-primary">
+    <section className="section-secondary experience-section">
       <SectionTitle>Experience</SectionTitle>
 
       <div className="space-y-1">
@@ -43,7 +43,7 @@ export function Experience({ data }: ExperienceProps) {
             duration={exp.duration}
           >
             <div className="experience-card">
-              <div className="mb-2">
+              <div className="mb-1.5">
                 <h3 className="t-subhead font-semibold text-navy-900">
                   {exp.company}
                   {exp.companyEn && (
@@ -52,21 +52,21 @@ export function Experience({ data }: ExperienceProps) {
                     </span>
                   )}
                 </h3>
-                <p className="t-body text-stone-700">
+                <p className="t-detail text-stone-700">
                   {exp.position}
                   {exp.department && ` · ${exp.department}`}
                 </p>
                 {exp.companyInfo && (
-                  <p className="t-detail text-stone-500 mt-0.5">
+                  <p className="t-meta text-stone-500 mt-px">
                     {exp.companyInfo}
                   </p>
                 )}
               </div>
 
               {exp.highlights.length > 0 && (
-                <ul className="space-y-1 mb-2">
+                <ul className="space-y-0.5 mb-1.5">
                   {exp.highlights.map((highlight, index) => (
-                    <li key={index} className="t-body text-stone-800 flex">
+                    <li key={index} className="t-detail text-stone-800 flex">
                       <span className="text-stone-300 mr-2">·</span>
                       <span>{highlightMagnitude(highlight)}</span>
                     </li>

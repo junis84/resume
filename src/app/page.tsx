@@ -1,71 +1,59 @@
-"use client";
-
-import { resumeData } from "@/data/resume";
+import { CoreCompetencies } from "@/components/resume/CoreCompetencies";
+import { CredentialsAndAdditional } from "@/components/resume/CredentialsAndAdditional";
+import { EarlierExperience } from "@/components/resume/EarlierExperience";
+import { Experience } from "@/components/resume/Experience";
 import { Header } from "@/components/resume/Header";
 import { IntroduceSection } from "@/components/resume/IntroduceSection";
-import { CoreCompetencies } from "@/components/resume/CoreCompetencies";
-import { Experience } from "@/components/resume/Experience";
 import { Projects } from "@/components/resume/Projects";
-import { Publications } from "@/components/resume/Publications";
-import { OpenSource } from "@/components/resume/OpenSource";
-import { Certifications } from "@/components/resume/Certifications";
-import { Education } from "@/components/resume/Education";
-import { EtcSection } from "@/components/resume/EtcSection";
+import { PublicEvidence } from "@/components/resume/PublicEvidence";
+import { ResumeToolbar } from "@/components/resume/ResumeToolbar";
+import { careerHistoryData, selectedResumeData } from "@/data/resume";
+
+function PageFooter({ page }: { page: number }) {
+  return (
+    <footer className="resume-page-footer t-meta text-stone-500">
+      <span>Junyeong Eom · AI Platform Engineer</span>
+      <span>{page} / 2</span>
+    </footer>
+  );
+}
 
 export default function ResumePage() {
   return (
-    <div className="resume-wrapper">
-      <article className="resume-container">
-        {/* Header - 이름, 직함, 연락처 */}
-        <Header data={resumeData.header} />
+    <main className="resume-wrapper">
+      <ResumeToolbar />
 
-        {/* Introduce - 상세 자기소개 */}
-        <IntroduceSection data={resumeData.introduce} />
-
-        {/* Core Competencies - 기술 스택 (숙련도 표시) */}
-        <CoreCompetencies data={resumeData.skills} />
-
-        {/* Experience - 경력 사항 (타임라인) */}
-        <Experience data={resumeData.experience} />
-
-        {/* Projects - 상세 프로젝트 (성과 체크마크) */}
-        <Projects data={resumeData.projects} />
-
-        {/* Publications & Speaking - AWS 블로그, Summit */}
-        <Publications data={resumeData.publications} />
-
-        {/* Open Source - GitHub 프로젝트 */}
-        <OpenSource
-          data={resumeData.openSource}
-          githubUrl={resumeData.header.githubUrl}
-        />
-
-        {/* Certifications - 자격증 */}
-        <Certifications data={resumeData.certifications} />
-
-        {/* Education - 학력 */}
-        <Education data={resumeData.education} />
-
-        {/* ETC - 기타 (멘사, 군복무) */}
-        <EtcSection data={resumeData.etc} />
+      <article className="resume-sheet resume-page resume-page-one" aria-label="엄준영 채용용 이력서 1페이지">
+        <Header data={selectedResumeData.header} />
+        <IntroduceSection data={selectedResumeData.introduce} />
+        <CoreCompetencies data={selectedResumeData.skills} />
+        <Experience data={selectedResumeData.experience} />
+        <PageFooter page={1} />
       </article>
 
-      {/* PDF 다운로드 및 인쇄 버튼 */}
-      <div className="no-print mt-4 flex gap-4">
-        <a
-          href="/api/pdf"
-          className="px-6 py-2.5 bg-navy-900 text-white rounded-lg hover:bg-navy-800 transition-colors inline-block font-medium text-[13px]"
-          download="resume-junyeong-eom.pdf"
-        >
-          PDF 다운로드
-        </a>
-        <button
-          onClick={() => window.print()}
-          className="px-6 py-2.5 bg-stone-700 text-white rounded-lg hover:bg-stone-600 transition-colors font-medium text-[13px]"
-        >
-          인쇄
-        </button>
-      </div>
-    </div>
+      <article className="resume-sheet resume-page resume-page-two" aria-label="엄준영 채용용 이력서 2페이지">
+        <header className="resume-running-header flex items-center justify-between border-b border-stone-200 pb-2 mb-4">
+          <div>
+            <p className="t-subhead font-bold text-navy-900">엄준영 <span className="font-normal text-stone-500">Junyeong Eom</span></p>
+            <p className="t-meta text-stone-500">Projects, publications, open source, and credentials</p>
+          </div>
+          <a href="/portfolio" className="t-meta font-semibold text-navy-700">junyeong-ai · Portfolio</a>
+        </header>
+
+        <Projects data={selectedResumeData.projects} />
+        <PublicEvidence
+          publications={selectedResumeData.publications}
+          openSource={selectedResumeData.openSource}
+          githubUrl={selectedResumeData.header.githubUrl}
+        />
+        <EarlierExperience data={careerHistoryData.experience.slice(3)} />
+        <CredentialsAndAdditional
+          certifications={selectedResumeData.certifications}
+          education={selectedResumeData.education}
+          etc={selectedResumeData.etc}
+        />
+        <PageFooter page={2} />
+      </article>
+    </main>
   );
 }

@@ -12,17 +12,18 @@ export function Header({ data }: HeaderProps) {
     email,
     githubUrl,
     linkedinUrl,
+    portfolioUrl,
     totalExperience,
     updatedAt,
   } = data;
 
   return (
-    <header className="mb-7 pb-5 border-b border-stone-200">
-      <div className="flex justify-between items-start">
+    <header className="resume-header mb-6 pb-4 border-b border-stone-200">
+      <div className="resume-header-main flex justify-between items-start gap-6">
         <div>
           <h1 className="t-name font-bold text-navy-900 tracking-tight">
             {nameKo}
-            <span className="text-stone-500 font-normal ml-2">({nameEn})</span>
+            <span className="name-en text-stone-500 font-normal ml-2">{nameEn}</span>
           </h1>
           <p className="t-title text-stone-700 mt-1">{title}</p>
         </div>
@@ -40,7 +41,7 @@ export function Header({ data }: HeaderProps) {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center gap-4 mt-4 t-body text-stone-600">
+      <div className="resume-contact flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-3 t-body text-stone-600">
         <a
           href={`mailto:${email}`}
           className="hover:text-navy-700 transition-colors"
@@ -66,6 +67,17 @@ export function Header({ data }: HeaderProps) {
               className="text-navy-700 hover:text-navy-600 transition-colors"
             >
               LinkedIn
+            </a>
+          </>
+        )}
+        {portfolioUrl && (
+          <>
+            <span className="text-stone-300">|</span>
+            <a
+              href={portfolioUrl}
+              className="text-navy-700 hover:text-navy-600 transition-colors font-medium"
+            >
+              Portfolio
             </a>
           </>
         )}

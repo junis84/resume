@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "엄준영 (Junyeong Eom) - Resume",
+  title: {
+    default: "엄준영 · AI Platform Engineer",
+    template: "%s · Junyeong Eom",
+  },
   description:
-    "Senior Backend Engineer | AI Systems Architect - 17년 경력의 백엔드 개발자",
+    "16년 이상의 백엔드 경험을 바탕으로 근거·평가 체계를 갖춘 Agentic AI 플랫폼과 에이전트를 설계하는 엔지니어",
 };
 
 export default function RootLayout({

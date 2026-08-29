@@ -13,14 +13,16 @@ interface CoreCompetenciesProps {
  * `level: 3`(고급)은 진하게, 그 외는 옅게 렌더해 숙련도를 별도 UI 없이 표현한다.
  */
 export function CoreCompetencies({ data }: CoreCompetenciesProps) {
+  const hasLevels = data.some((group) => group.skills.some((skill) => skill.level !== undefined));
+
   return (
-    <section className="section-primary competencies">
-      <SectionTitle>Core Competencies</SectionTitle>
-      <dl className="space-y-2">
+    <section className="section-secondary competencies">
+      <SectionTitle>Core Expertise</SectionTitle>
+      <dl className="space-y-1.5">
         {data.map((group) => (
           <div
             key={group.category}
-            className="flex gap-3 border-b border-stone-100 pb-2 last:border-b-0 last:pb-0"
+            className="competency-row flex gap-3 border-b border-stone-100 pb-1.5 last:border-b-0 last:pb-0"
           >
             <dt className="t-detail font-semibold text-navy-800 w-[76px] shrink-0">
               {group.category}
@@ -46,9 +48,11 @@ export function CoreCompetencies({ data }: CoreCompetenciesProps) {
           </div>
         ))}
       </dl>
-      <p className="t-meta text-stone-400 mt-2">
-        진한 표기 = 실무 주력 · 옅은 표기 = 사용 경험
-      </p>
+      {hasLevels && (
+        <p className="t-meta text-stone-500 mt-2">
+          진한 표기 = 실무 주력 · 옅은 표기 = 사용 경험
+        </p>
+      )}
     </section>
   );
 }

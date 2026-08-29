@@ -22,11 +22,11 @@ export function TimelineItem({
   };
 
   return (
-    <div className="relative flex gap-4">
+    <div className="timeline-item relative flex gap-3.5">
       {/* Timeline sidebar — 날짜 / 기간 / 재직 여부를 한 축으로 우측 정렬.
           이전에는 날짜·알약 배지·[대괄호 기간]이 각기 다른 정렬과 크기로
           쌓여 있어 사이드바가 본문보다 시끄러웠다. */}
-      <div className="w-24 flex-shrink-0 text-right">
+      <div className="timeline-date w-24 flex-shrink-0 text-right">
         <div className="t-meta text-stone-600 font-medium">
           {formatDate(date)}
           {endDate && ` ~ ${formatDate(endDate)}`}
@@ -39,7 +39,7 @@ export function TimelineItem({
 
       {/* Timeline line and dot — 현재 진행 중인 항목만 채운 점으로 구분한다
           ("재직 중" 배지를 대신하는 신호) */}
-      <div className="flex flex-col items-center">
+      <div className="timeline-rail flex flex-col items-center">
         <div
           className={`w-1.5 h-1.5 rounded-full mt-[5px] ${
             isCurrent
@@ -51,7 +51,7 @@ export function TimelineItem({
       </div>
 
       {/* Content */}
-      <div className="flex-1 pb-5">{children}</div>
+      <div className="timeline-content flex-1 pb-3.5">{children}</div>
     </div>
   );
 }

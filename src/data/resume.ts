@@ -1,14 +1,15 @@
-import type { Resume } from "@/types/resume";
+import type { Experience, Resume } from "@/types/resume";
 
 export const resumeData: Resume = {
   header: {
     nameKo: "엄준영",
-    nameEn: "Junyeong.Eom",
-    title: "AI Engineer · FDE",
+    nameEn: "Junyeong Eom",
+    title: "AI Platform Engineer · Agent Systems & Evaluation",
     email: "e.junis84@gmail.com",
     githubUrl: "https://github.com/junyeong-ai",
     totalExperience: "16년 6개월",
-    updatedAt: "2026-08-03",
+    portfolioUrl: "/portfolio",
+    updatedAt: "2026-08-29",
   },
 
   introduce: {
@@ -29,8 +30,8 @@ export const resumeData: Resume = {
     ],
     paragraphs: [
       "PHP 풀스택으로 시작해 Kotlin/Spring Boot 기반 대규모 트래픽 서비스를 거쳐, 지금은 Gemini Enterprise/Vertex AI 위에서 에이전트 시스템을 설계합니다. 스택이 바뀔 때마다 새로 배워야 했고, 그 과정 자체를 좋아합니다.",
-      "MD사업본부를 위한 AI 에이전트 'MD Wisely'에서 지식 검색(RAG)과 Tableau 데이터 연동을 맡고 있습니다. 컨플루언스와 슬랙에 흩어진 740건 이상의 문서와 실적 데이터를 하나의 답변으로 합치는 일입니다. 품질은 결정론 스코어러 18종과 LLM Judge 9종으로 구성한 온라인 평가로 지키고 있고, 괜찮아 보이던 개선안도 측정 결과를 보고 접은 적이 있습니다.",
-      "AI Agent가 쓰기 좋은 Rust 기반 CLI 도구들(symora, nodex, hatel 등)을 만들어 오픈소스로 공개하고 MCP·Claude Code Skill로 붙여 쓰고 있습니다. 비개발자가 스펙만으로 사내 웹사이트를 만들고 배포할 수 있는 플랫폼(Webloom)도 만들어, 누가 작업하든 같은 품질이 나오도록 게이트로 강제하는 방식을 팀에 도입했습니다.",
+      "MD사업본부를 위한 AI 에이전트 'MD Wisely'와 Tableau 자연어 분석 에이전트의 아키텍처와 핵심 구현을 맡고 있습니다. 2026년 8월 기준 활성 위키 문서 1,435건을 지식베이스로 운영하며, 규칙 기반 평가기 21종과 LLM 기반 평가기 9종으로 변경의 효과를 검증합니다.",
+      "AI 에이전트가 사용하기 좋은 Rust 기반 CLI 도구들(symora, nodex, hatel 등)을 오픈소스로 공개하고 MCP·Claude Code skill로 연결했습니다. 비개발자가 명세만으로 사내 웹사이트를 만들고 배포할 수 있는 플랫폼(Webloom)도 만들어, 작업자와 무관하게 같은 기준을 적용하는 품질 게이트를 팀에 도입했습니다.",
       "문제는 대부분 내 코드 안이 아니라 다른 영역과 만나는 경계에서 생깁니다. 그래서 맡은 범위 밖도 계속 따라가려 하는 편이고, 백엔드의 깊이 위에 AI·데이터·인프라를 함께 보며 일합니다.",
     ],
   },
@@ -54,7 +55,7 @@ export const resumeData: Resume = {
       ],
     },
     {
-      category: "Back-end",
+      category: "Backend",
       skills: [
         { name: "Kotlin", level: 3 },
         { name: "Java", level: 3 },
@@ -91,7 +92,7 @@ export const resumeData: Resume = {
         { name: "Cloud Run" },
         { name: "Docker & K8s" },
         { name: "OpenTofu / Terraform" },
-        { name: "Github" },
+        { name: "GitHub" },
         { name: "Datadog" },
         { name: "Langfuse" },
         { name: "Argo CD" },
@@ -102,7 +103,7 @@ export const resumeData: Resume = {
       ],
     },
     {
-      category: "Front-end",
+      category: "Frontend",
       skills: [
         { name: "React", level: 3 },
         { name: "Next.js", level: 3 },
@@ -126,9 +127,9 @@ export const resumeData: Resume = {
       companyInfo: "헬스&뷰티 리테일 기업 · AI Transformation 전담 조직",
       highlights: [
         "Gemini Enterprise / Vertex AI Agent Engine 기반 사내 Agentic AI 플랫폼(AIX Platform) 설계·구축",
-        "MD사업본부 AI 에이전트 'MD Wisely' — 멀티모달 RAG 지식 검색과 Tableau 데이터 연동 담당",
-        "한국어 자연어를 Tableau 질의로 바꾸는 NL2SQL A2A 에이전트 설계·개발",
-        "결정론 스코어러 18종 + LLM Judge 9종 기반 온라인 평가와 배포 품질 게이트 구축",
+        "MD사업본부 지식 에이전트 'MD Wisely'와 Tableau 자연어 분석 에이전트의 아키텍처·핵심 구현",
+        "문서 근거와 정형 데이터를 연결하는 A2A 계약 및 에이전트 간 통합 경계 설계",
+        "규칙 기반 평가기 21종 + LLM 기반 평가기 9종으로 구성한 평가 체계와 배포 품질 게이트 구축",
         "비개발자가 스펙으로 사내 웹사이트를 만들고 배포하는 플랫폼(Webloom) 및 하네스 설계",
         "FDE 방식으로 현업과 문제 정의부터 협업 — 골든셋을 현업이 직접 저작하는 구조로 전환",
         "RAG 검색 품질·멀티모달 표현·에이전트 비결정성 실측 실험 설계 및 결과 문서화",
@@ -149,7 +150,7 @@ export const resumeData: Resume = {
       duration: "7개월",
       companyInfo: "현대자동차그룹 SDV/자율주행 전문 기업 (700명)",
       highlights: [
-        "Capora TMS 2.0 서비스 백엔드 개발 및 런칭",
+        "Capora TMS 2.0 서비스 백엔드 개발 및 출시",
         "Capora AI Assistant Multi-Agent Pipeline 아키텍처 설계 및 개발",
         "Spring AI + AWS Bedrock 기반 도메인 특화 AI 에이전트 시스템 구축",
         "화주사 조직 및 사용자 관리 시스템 설계/구현 (OMS/ADMIN)",
@@ -173,7 +174,7 @@ export const resumeData: Resume = {
       highlights: [
         "SageMaker/Bedrock 기반 AI 추천·검색 시스템 구축 (이미지 태깅, 자연어 검색)",
         "전사 AI Gateway 플랫폼 설계 및 개발",
-        "대규모 트래픽 처리를 위한 Event-Driven 아키텍처 설계 및 AWS 인프라 활용",
+        "대규모 트래픽 처리를 위한 이벤트 기반 아키텍처 설계 및 AWS 인프라 활용",
         "레거시 정리(PHP → Java/Kotlin 전환) 및 기존 비즈니스 로직 유지보수",
         "DDD(도메인 주도 설계) 및 ATDD 개발 방식을 팀에 도입",
         "Agile 연구 및 도입(사용자 스토리 기반 정의, 페어 프로그래밍, 회고)",
@@ -221,7 +222,7 @@ export const resumeData: Resume = {
         "시스템진단 솔루션 SolidStep 관리서버 구성 및 웹 풀스택 개발",
         "RDB Schema 모델링 및 백엔드 아키텍처, 서버 인프라 구축",
       ],
-      skillKeywords: ["PHP", "Postgresql", "Javascript", "HTML/CSS"],
+      skillKeywords: ["PHP", "PostgreSQL", "JavaScript", "HTML/CSS"],
     },
     {
       id: "exp-ejunction",
@@ -237,7 +238,7 @@ export const resumeData: Resume = {
         "제휴된 스티커 사진 매장에서 촬영된 사진을 온라인에서 제공하는 서비스 개발",
         "RDB Schema 모델링 및 백엔드 아키텍처, 서버 인프라 구축",
       ],
-      skillKeywords: ["PHP", "MySQL", "CentOS", "Javascript", "HTML/CSS"],
+      skillKeywords: ["PHP", "MySQL", "CentOS", "JavaScript", "HTML/CSS"],
     },
     {
       id: "exp-cloudweb",
@@ -255,7 +256,7 @@ export const resumeData: Resume = {
         "여성의류 쇼핑몰 개발",
         "소규모 팀에서 기획부터 배포까지 전 과정 담당",
       ],
-      skillKeywords: ["PHP", "MySQL", "Javascript", "HTML/CSS"],
+      skillKeywords: ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
     },
   ],
 
@@ -270,12 +271,12 @@ export const resumeData: Resume = {
       descriptions: [
         "Gemini Enterprise + Vertex AI Agent Engine 기반 사내 Agentic AI 플랫폼 설계 및 구축",
         "성격이 다른 에이전트 도메인 10종(지식검색·데이터분석·회의·회의실·이슈관리 등)을 한 플랫폼에 수용하면서, 도메인 간 의존이 새지 않도록 패키지 경계를 정적 검사로 강제",
-        "에이전트별 서빙 토폴로지 분기 — 관리형 Agent Engine과 자체 호스팅 Cloud Run A2A 중 데이터 residency·보안 경계 요건에 따라 선택",
+        "에이전트별 서빙 토폴로지 분기 — 관리형 Agent Engine과 자체 호스팅 Cloud Run A2A 중 데이터 저장 위치·보안 경계 요건에 따라 선택",
         "관리형 런타임이 보안 경계 밖 사내 데이터에 닿지 못하는 제약을 MCP 서버를 경계 안에 두는 방식으로 해소하고, Slack·Jira·Workspace·Tableau 연동을 MCP로 표준화",
-        "dev/prd 두 환경을 동일한 IaC 모듈로 기술해 환경 간 구성 편차를 구조적으로 제거",
+        "개발·운영 환경을 동일한 IaC 모듈로 기술해 환경 간 구성 편차를 구조적으로 제거",
       ],
       achievements: [
-        { text: "새 에이전트 도메인 추가 시 플랫폼 코드 변경 없이 확장 가능한 registry 구조 구현", isHighlight: true },
+        { text: "새 에이전트 도메인을 플랫폼 코드 변경 없이 추가하는 레지스트리 구조 구현", isHighlight: true },
         { text: "설계 결정과 그것을 뒤집을 근거를 문서 그래프로 남겨, 상황이 바뀌면 기억이 아니라 기록으로 재논의", isHighlight: true },
       ],
     },
@@ -288,29 +289,30 @@ export const resumeData: Resume = {
       category: "AI/RAG",
       descriptions: [
         "사내 정책·업무 가이드·Q&A를 자연어로 답하는 지식 에이전트의 검색(RAG) 영역 설계 및 구현",
-        "컨플루언스 740건 이상의 문서를 대상으로 9단계 수집 파이프라인 구축(복호화 → 정규화 → 청킹 → 컨텍스트 보강 → 임베딩 → 색인)",
-        "그래프 오케스트레이션 스테이지 파이프라인 구현 — 질의 해석 → KB 검색 → 이웃 청크 확장 → 근거 기반 생성 → 인용 검증",
-        "A2A 프로토콜로 Tableau 에이전트와 연동하여 문서 근거와 실시간 수치를 하나의 답변으로 합성",
+        "활성 위키 문서 1,435건(2026-08 스냅샷)을 대상으로 구조 인식 청킹·임베딩·색인을 수행하는 8단계 수집 파이프라인 구축",
+        "16단계 서빙 그래프 구현 — 의도 판별 → 근거 검색 → 증거 판정 → 답변 생성 → 주장 단위 검증",
+        "Tableau 에이전트와 연결되는 A2A 요청·응답 계약 및 provenance 경계 구현",
         "인용 링크 검증과 '모른다' 응답 계약으로 환각 억제, 콘텐츠 해시 정규화 버저닝으로 재색인 멱등성 확보",
-        "정리된 문서만으로는 부족해 슬랙 대화 등 비정형 채널까지 지식 소스로 포함",
+        "현재 운영 지식 소스를 Confluence로 한정하고, 미수집 채널은 답변 범위와 한계로 명시",
       ],
       achievements: [
-        { text: "정책 원문과 매일 대조하는 신선도 장치로 지식-원본 불일치 차단", isHighlight: true },
-        { text: "개인에게만 있던 업무 지식을 조직이 함께 쓰는 형태로 옮기는 기반 마련", isHighlight: true },
+        { text: "100문항 대조 연구에서 claim precision 96.9% · 근거 없는 주장 1.6% 측정", isHighlight: true },
+        { text: "근거 없음·일부 근거·충분한 근거를 코드로 구분해 유창한 무근거 답변 차단", isHighlight: true },
       ],
     },
     {
       id: "proj-tableau-agent",
-      name: "Tableau NL2SQL AI Agent 설계 및 개발",
+      name: "Tableau 자연어 분석 에이전트 설계 및 개발",
       company: "CJ 올리브영",
       companyEn: "CJ OliveYoung",
       startDate: "2026-04",
-      category: "AI/NL2SQL Agent",
+      category: "AI/Data Analytics Agent",
       descriptions: [
-        "한국어 자연어 질문을 Tableau 데이터소스 질의로 변환하는 A2A 에이전트 설계 및 개발",
-        "5단계 파이프라인 구현: 질의 라우팅 → 기간 해석 → 엔티티/값 해소 → 계산·조합 → 근거 서술",
+        "한국어 자연어 질문을 검증된 Tableau 데이터소스 질의 계획으로 변환하는 A2A 에이전트 설계·구현",
+        "사용자 관점 5개 논리 구간을 25단계 제어 그래프로 구현하고, 모델 판단을 7단계로 제한",
         "값 인덱스와 별칭 하비스팅으로 화면 표기와 실제 데이터 값의 불일치를 해소하고, 데이터 적재 시점(data epoch) 인식으로 '어제'가 달력과 데이터에서 달라지는 문제 처리",
         "무응답 계약 9종 설계 — 답할 수 없는 상황마다 약속된 안내 방식을 정의",
+        "35개 코드 검증 규칙과 최대 3회 교정·1회 재해석으로 잘못된 수치 질의의 실행 전 차단",
         "커버리지 10개 영역 × 질문 유형 31종 골든셋 설계로 에이전트 변경 시 자동 재시험",
       ],
       achievements: [
@@ -320,13 +322,13 @@ export const resumeData: Resume = {
     },
     {
       id: "proj-agent-eval",
-      name: "AI Agent 평가 · 품질 게이트 시스템 구축",
+      name: "AI 에이전트 평가 · 품질 게이트 시스템 구축",
       company: "CJ 올리브영",
       companyEn: "CJ OliveYoung",
       startDate: "2026-05",
       category: "AI/Evaluation",
       descriptions: [
-        "결정론 스코어러 18종 + LLM Judge 9종 기반 온라인 평가 프레임워크 설계 및 구현",
+        "규칙 기반 평가기 21종 + LLM 기반 평가기 9종으로 구성한 온라인 평가 프레임워크 설계 및 구현",
         "prime → certify → score 3단계 흐름 설계 — 골든셋은 DB가 소유(SSoT)하고 단일 eval-runner가 라이브 채점",
         "Judge 캘리브레이션 통계 구현(가중 Cohen's κ · Gwet AC1 · Krippendorff α)과 2표본 KS 검정 기반 온라인 드리프트 탐지",
         "프로덕션 트레이스 → 골든셋 승격 루프 구현(failure-weighted + complexity-stratified 샘플링)",
@@ -436,7 +438,7 @@ export const resumeData: Resume = {
     },
     {
       id: "proj-capora-tms",
-      name: "Capora TMS 2.0 서비스 개발 및 런칭",
+      name: "Capora TMS 2.0 서비스 개발 및 출시",
       company: "42dot",
       companyEn: "42dot Inc.",
       startDate: "2025-09",
@@ -448,7 +450,7 @@ export const resumeData: Resume = {
         "외부 배차 시스템과의 연동 인터페이스 개발로 배차 자동화 지원",
       ],
       achievements: [
-        { text: "Capora TMS 2.0 정식 런칭", isHighlight: true },
+        { text: "Capora TMS 2.0 정식 출시", isHighlight: true },
       ],
     },
     {
@@ -483,7 +485,7 @@ export const resumeData: Resume = {
         "Bedrock과 SageMaker를 활용하여 자연어 쿼리를 임베딩 벡터로 변환",
         "인플루언서가 업로드한 스냅의 메타데이터 및 이미지 캡션 정보를 임베딩하여 벡터화",
         "벡터 검색 기반으로 자연어 쿼리와 인플루언서 스냅 정보를 매칭하여 검색 결과 제공",
-        "Kotlin, Spring Boot 기반의 API 서버와 AI inference 파이프라인 구축",
+        "Kotlin, Spring Boot 기반 API 서버와 AI 추론 파이프라인 구축",
         "Elasticsearch, Redis를 활용한 대용량 벡터 검색 성능 확보",
         "자연어 검색 도입으로 인플루언서 탐색 경로를 추가",
       ],
@@ -500,7 +502,7 @@ export const resumeData: Resume = {
         "AWS SageMaker를 활용하여 사용자의 스냅 이미지에서 패션 아이템을 자동 디텍션 및 분할",
         "디텍션된 패션 아이템을 크롭하여 이미지 임베딩 벡터로 변환",
         "벡터 검색 기반의 유사 상품 탐색 및 태그 제안 기능 구현",
-        "Kotlin, Spring Boot 기반의 API 서버와 SageMaker 연동을 통한 실시간 AI inference 파이프라인 구축",
+        "Kotlin, Spring Boot 기반 API 서버와 SageMaker를 연동한 실시간 AI 추론 파이프라인 구축",
         "Elasticsearch, Redis를 활용한 대용량 이미지 벡터 검색 성능 확보",
         "AWS 프로토타이핑 팀과의 긴밀한 협업을 통해 최신 AI/ML 기술을 신속하게 서비스에 적용",
       ],
@@ -549,7 +551,7 @@ export const resumeData: Resume = {
         { text: "일일 활성 사용자 수 25% 증가", isHighlight: true },
         { text: "추천 클릭률 15% 향상", isHighlight: true },
         { text: "응답 시간 20% 단축", isHighlight: true },
-        { text: "Event-Driven 아키텍처 도입으로 서비스 간 결합도 감소 및 확장성 확보", isHighlight: true },
+        { text: "이벤트 기반 아키텍처 도입으로 서비스 간 결합도 감소 및 확장성 확보", isHighlight: true },
       ],
     },
     {
@@ -752,7 +754,7 @@ export const resumeData: Resume = {
       descriptions: [
         "개인정보 보호를 위한 DB 암호화 적용 — PHP·Java·Go에서 공통 암복호화가 가능하도록 알고리즘 교차 검증, AWS KMS로 키 관리",
         "LNB(Left Navigation Bar) 조회 API를 Go 기반 Lambda로 개발, DynamoDB Stream이 Lambda를 트리거해 ElastiCache에 캐싱하는 구조 구현",
-        "PHP Codeigniter 레거시 개선 — namespace 기반 클래스 설계 및 autoload 적용, PSR-12 컨벤션과 Clean Code 원칙 도입",
+        "PHP CodeIgniter 레거시 개선 — namespace 기반 클래스 설계 및 autoload 적용, PSR-12 컨벤션과 Clean Code 원칙 도입",
       ],
     },
     {
@@ -836,10 +838,10 @@ export const resumeData: Resume = {
     {
       id: "oss-nodex",
       name: "nodex",
-      description: "마크다운을 질의 가능한 검증된 문서 그래프로",
+      description: "마크다운을 질의·검증 가능한 문서 그래프로",
       url: "https://github.com/junyeong-ai/nodex",
       language: "Rust",
-      features: ["프론트매터 검증 게이트", "머지 영향도 분석", "스키마 내보내기"],
+      features: ["프론트매터·링크 검증", "변경 영향도 분석", "JSON-first CLI"],
     },
     {
       id: "oss-entelix",
@@ -876,18 +878,18 @@ export const resumeData: Resume = {
     {
       id: "oss-hatel",
       name: "hatel",
-      description: "Claude Code 로컬 텔레메트리 수집기",
+      description: "Claude Code 세션 텔레메트리 수집·분석기",
       url: "https://github.com/junyeong-ai/hatel",
       language: "Rust",
-      features: ["비용·토큰 추적", "서브에이전트별 분석", "커스텀 지표"],
+      features: ["OTel·hook 신호 결합", "비용·토큰 추적", "서브에이전트 분석"],
     },
     {
       id: "oss-harnex",
       name: "harnex",
-      description: "Claude Code 하네스 엔지니어링 도구",
+      description: "Claude Code 프로젝트용 하네스 생성·검증기",
       url: "https://github.com/junyeong-ai/harnex",
-      language: "TypeScript",
-      features: ["룰·스킬 관리", "하네스 진단", "프로젝트 스캐폴딩"],
+      language: "Rust",
+      features: ["프로젝트 맞춤 scaffold", "규칙·훅·권한 감사", "세션 기반 효과 측정"],
     },
     {
       id: "oss-claudio",
@@ -990,8 +992,8 @@ export const resumeData: Resume = {
     {
       id: "etc-mensa",
       date: "2014-04",
-      title: "멘사 회원 가입",
-      description: "멘사 테스트 통과 (IQ 148)",
+      title: "Mensa Korea 정회원",
+      description: "공식 입회 테스트 통과 · IQ 148",
     },
     {
       id: "etc-military",
@@ -1011,4 +1013,184 @@ export const resumeData: Resume = {
       status: "졸업",
     },
   ],
+};
+
+function experienceById(id: string): Experience {
+  const experience = resumeData.experience.find((item) => item.id === id);
+  if (!experience) throw new Error(`Missing resume experience: ${id}`);
+  return experience;
+}
+
+export const selectedResumeData: Resume = {
+  header: {
+    ...resumeData.header,
+    nameEn: "Junyeong Eom",
+    title: "AI Platform Engineer · Agent Systems & Evaluation",
+    portfolioUrl: "/portfolio",
+    updatedAt: "2026-08-29",
+  },
+  introduce: {
+    lead: "16년의 백엔드·플랫폼 경험을 바탕으로, 근거와 평가 체계를 갖춘 사내 AI 에이전트를 설계하고 운영합니다.",
+    principles: [],
+    paragraphs: [
+      "현업·비개발자와 문제를 함께 정의하고, 모델의 판단은 평가로 검증하며 선택과 포기의 근거를 설명합니다. 결정 전에는 비판적으로 토론하되 합의된 방향은 끝까지 실행하고, 해법은 표준·문서·멘토링·기술 공유로 팀에 남깁니다.",
+    ],
+    proofPoints: [
+      { value: "16년+", label: "Backend & Platform", detail: "대규모 서비스에서 Agentic AI까지" },
+      { value: "96.9%", label: "Claim precision", detail: "MD Wisely 100문항 대조 연구 · 2026-08" },
+      { value: "30종", label: "Evaluation suite", detail: "규칙 기반 21종 + LLM 기반 9종" },
+    ],
+  },
+  skills: [
+    {
+      category: "AI/LLM",
+      skills: [
+        { name: "Agentic AI" }, { name: "Google ADK" }, { name: "A2A" }, { name: "MCP" },
+        { name: "RAG" }, { name: "Gemini / Claude" }, { name: "LLM Evaluation" }, { name: "Langfuse" },
+      ],
+    },
+    {
+      category: "Backend",
+      skills: [
+        { name: "Kotlin / Java" }, { name: "Python" }, { name: "Go / Rust" }, { name: "Spring Boot" },
+        { name: "FastAPI" }, { name: "PostgreSQL / pgvector" }, { name: "Kafka" }, { name: "Elasticsearch" },
+      ],
+    },
+    {
+      category: "Platform",
+      skills: [
+        { name: "GCP / Vertex AI" }, { name: "AWS / Bedrock" }, { name: "Cloud Run" }, { name: "Kubernetes" },
+        { name: "OpenTofu / Terraform" }, { name: "OpenTelemetry" }, { name: "Datadog" }, { name: "Argo CD" },
+      ],
+    },
+  ],
+  experience: [
+    {
+      ...experienceById("exp-oliveyoung"),
+      highlights: [
+        "10개 에이전트 도메인을 독립적으로 확장하도록 패키지 경계·런타임 레지스트리·A2A/MCP 계약 설계",
+        "MD Wisely와 Tableau 자연어 분석 에이전트의 아키텍처 및 핵심 구현 주도",
+        "규칙 기반 평가기 21종과 LLM 기반 평가기 9종을 현업 저작 평가 세트·배포 게이트에 연결",
+        "FDE 방식으로 현업과 문제 정의부터 협업하고, 현업이 직접 평가 문항을 저작하는 구조로 전환",
+      ],
+      skillKeywords: ["Google ADK", "A2A", "MCP", "RAG", "Vertex AI", "Cloud Run", "pgvector"],
+    },
+    {
+      ...experienceById("exp-42dot"),
+      highlights: [
+        "Capora TMS 2.0 백엔드 개발·출시와 물류 도메인 멀티 에이전트 파이프라인 설계",
+        "도구 정의를 단일 레지스트리로 통합하고, 단순 요청은 LLM 없이 직접 실행하는 경로 구현",
+        "Kotlin·Spring AI·AWS Bedrock 기반으로 도메인 추가 시 파이프라인 변경을 최소화",
+      ],
+      skillKeywords: ["Kotlin", "Spring Boot", "Spring AI", "AWS Bedrock", "PostgreSQL", "Kafka"],
+    },
+    {
+      ...experienceById("exp-musinsa"),
+      highlights: [
+        "전사 AI Gateway 초기 설계와 SageMaker·Bedrock 기반 추천·자연어 검색 시스템 개발",
+        "콘텐츠 플랫폼의 PHP 서비스를 Java·Kotlin으로 전환하고 이벤트 기반 아키텍처 적용",
+        "대규모 이벤트·콘텐츠 서비스 운영과 데이터베이스 샤딩, CI/CD·테스트 자동화 수행",
+        "AWS Summit Seoul 발표와 AWS 기술 블로그를 통해 시스템 설계 사례 공유",
+      ],
+      skillKeywords: ["Kotlin", "Java", "Spring Boot", "Kafka", "Elasticsearch", "AWS EKS", "SageMaker"],
+    },
+  ],
+  projects: [
+    {
+      id: "selected-aix-eval",
+      name: "AIX Platform & Evaluation System",
+      company: "CJ 올리브영",
+      startDate: "2026-03",
+      category: "Agentic AI Platform",
+      role: "Architecture · Core Backend · Evaluation",
+      descriptions: [
+        "에이전트 10개 도메인을 패키지 단위로 격리하고 정적 검사로 의존 경계를 강제",
+        "보안 요건에 따라 관리형 런타임과 Cloud Run A2A를 선택하고 MCP로 사내 데이터 경계를 표준화",
+        "30종 평가 카탈로그 가운데 20종은 배포 판정, 10종은 관찰 지표로 분리해 변경 위험을 통제",
+      ],
+      achievements: [
+        { text: "주관적 인상 평가를 현업 저작 평가 세트·반복 실행·통계적 비교가 있는 배포 품질 게이트로 전환", isHighlight: true },
+      ],
+    },
+    {
+      id: "selected-md-wisely",
+      name: "MD Wisely — 근거 검증형 지식 에이전트",
+      company: "CJ 올리브영",
+      startDate: "2026-04",
+      category: "RAG · Knowledge Agent",
+      role: "Architecture · RAG · Evaluation",
+      portfolioUrl: "/portfolio/md-wisely",
+      snapshot: "2026-08",
+      descriptions: [
+        "활성 위키 문서 1,435건을 구조 인식 청킹·parent-child·hybrid RRF 검색으로 색인",
+        "16단계 서빙 그래프에서 의도·근거·주장 검증을 분리하고 모든 반복 경로를 코드로 제한",
+        "생성 전 증거 판정과 생성 후 주장 단위 검증으로 빈 검색 결과의 유창한 오답을 차단",
+      ],
+      achievements: [
+        { text: "100문항 대조 연구 · precision 96.9% · 근거 없는 주장 1.6% · 오류·고비용 주장 미검출 답변 87/100", isHighlight: true },
+      ],
+    },
+    {
+      id: "selected-tableau",
+      name: "Tableau 자연어 분석 에이전트",
+      company: "CJ 올리브영",
+      startDate: "2026-04",
+      category: "Data Analytics Agent",
+      role: "Architecture · Guardrails · Evaluation",
+      portfolioUrl: "/portfolio/tableau-agent",
+      snapshot: "2026-08",
+      descriptions: [
+        "사용자 관점 5개 논리 구간을 25단계 제어 그래프로 구현하고 모델 판단을 7단계로 제한",
+        "값 정규화·35개 코드 검증 규칙·최대 3회 교정과 1회 재해석으로 조용한 오답을 실행 전에 차단",
+        "data epoch fingerprint로 데이터 재적재와 모델 회귀를 구분하고 출처·최신 시점을 코드가 표기",
+      ],
+      achievements: [
+        { text: "현업 저작 문항 139개 반복 평가 · 3회 모두 통과 121 · 판정 변동 14 · 지속 실패 4", isHighlight: true },
+      ],
+    },
+  ],
+  publications: resumeData.publications,
+  openSource: resumeData.openSource.filter((project) => ["oss-symora", "oss-nodex", "oss-hatel", "oss-harnex"].includes(project.id)),
+  certifications: [
+    {
+      id: "cert-ckad-selected",
+      name: "CKAD",
+      issuer: "Linux Foundation",
+      date: "2025-01",
+      kind: "certification",
+    },
+    {
+      id: "cert-cka-selected",
+      name: "CKA",
+      issuer: "Linux Foundation",
+      date: "2025-01",
+      kind: "certification",
+    },
+    {
+      id: "membership-mensa",
+      name: "Mensa Korea 정회원",
+      issuer: "공식 입회 테스트 통과 · IQ 148",
+      date: "2014-04",
+      kind: "membership",
+    },
+  ],
+  education: resumeData.education,
+  etc: resumeData.etc.filter((item) => item.id === "etc-military"),
+};
+
+const unverifiedMagnitude = /\d+(?:\.\d+)?(?:%|배)/;
+
+export const careerHistoryData: Resume = {
+  ...resumeData,
+  header: selectedResumeData.header,
+  introduce: selectedResumeData.introduce,
+  skills: selectedResumeData.skills,
+  projects: resumeData.projects.map((project) => ({
+    ...project,
+    achievements: project.startDate.startsWith("2026")
+      ? project.achievements
+      : project.achievements?.filter((achievement) => !unverifiedMagnitude.test(achievement.text)),
+  })),
+  certifications: selectedResumeData.certifications,
+  etc: selectedResumeData.etc,
 };
