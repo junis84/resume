@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("/fonts/PretendardVariable.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+}
+
 /* Tailwind v4는 legacy tailwind.config.ts의 확장 색상을 자동 등록하지 않는다.
    화면·인쇄가 같은 design token을 사용하도록 CSS-first theme에 명시한다. */
 @theme {
