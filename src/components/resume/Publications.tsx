@@ -3,9 +3,10 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 
 interface PublicationsProps {
   data: Publication[];
+  locale?: "ko" | "en";
 }
 
-export function Publications({ data }: PublicationsProps) {
+export function Publications({ data, locale = "ko" }: PublicationsProps) {
   return (
     <section className="section-secondary">
       <SectionTitle>Publications & Speaking</SectionTitle>
@@ -29,7 +30,7 @@ export function Publications({ data }: PublicationsProps) {
                 rel="noopener noreferrer"
                 className="t-meta text-navy-600 hover:text-navy-500 mt-px inline-block"
               >
-                {pub.url}
+                {locale === "en" ? "View publication →" : "공식 자료 보기 →"}
               </a>
             )}
           </div>

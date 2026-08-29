@@ -2,10 +2,13 @@ import type { Experience as ExperienceType } from "@/types/resume";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { TimelineItem } from "@/components/ui/TimelineItem";
 import { SkillBadge } from "@/components/ui/SkillBadge";
+import type { ResumeLocale } from "@/lib/locale";
 
 interface ExperienceProps {
   data: ExperienceType[];
   title?: string;
+  locale?: ResumeLocale;
+  idPrefix?: string;
 }
 
 /**
@@ -29,19 +32,21 @@ function highlightMagnitude(text: string): React.ReactNode {
   );
 }
 
-export function Experience({ data, title = "Experience" }: ExperienceProps) {
+export function Experience({ data, title = "Experience", locale = "ko", idPrefix = "" }: ExperienceProps) {
   return (
-    <section className="section-secondary experience-section">
+    <section id={`${idPrefix}career-experience`} className="section-secondary experience-section">
       <SectionTitle>{title}</SectionTitle>
 
       <div className="space-y-1">
         {data.map((exp) => (
           <TimelineItem
             key={exp.id}
+            id={`${idPrefix}experience-${exp.id}`}
             date={exp.startDate}
             endDate={exp.endDate}
             isCurrent={exp.isCurrent}
             duration={exp.duration}
+            locale={locale}
           >
             <div className="experience-card">
               <div className="mb-1.5">

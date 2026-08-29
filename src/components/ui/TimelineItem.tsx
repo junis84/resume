@@ -1,18 +1,23 @@
 import { ReactNode } from "react";
+import type { ResumeLocale } from "@/lib/locale";
 
 interface TimelineItemProps {
+  id?: string;
   date: string;
   endDate?: string;
   isCurrent?: boolean;
   duration?: string;
+  locale?: ResumeLocale;
   children: ReactNode;
 }
 
 export function TimelineItem({
+  id,
   date,
   endDate,
   isCurrent,
   duration,
+  locale = "ko",
   children,
 }: TimelineItemProps) {
   const formatDate = (dateStr: string) => {
@@ -22,7 +27,7 @@ export function TimelineItem({
   };
 
   return (
-    <div className="timeline-item relative flex gap-3.5">
+    <div id={id} className="timeline-item relative flex gap-3.5 scroll-mt-24">
       {/* Timeline sidebar — 날짜 / 기간 / 재직 여부를 한 축으로 우측 정렬.
           이전에는 날짜·알약 배지·[대괄호 기간]이 각기 다른 정렬과 크기로
           쌓여 있어 사이드바가 본문보다 시끄러웠다. */}
@@ -30,7 +35,7 @@ export function TimelineItem({
         <div className="t-meta text-stone-600 font-medium">
           {formatDate(date)}
           {endDate && ` ~ ${formatDate(endDate)}`}
-          {isCurrent && " ~ 현재"}
+          {isCurrent && ` ~ ${locale === "en" ? "Present" : "현재"}`}
         </div>
         {duration && (
           <div className="t-meta text-stone-400">{duration}</div>

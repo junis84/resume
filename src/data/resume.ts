@@ -148,7 +148,7 @@ export const resumeData: Resume = {
       endDate: "2026-03",
       isCurrent: false,
       duration: "7개월",
-      companyInfo: "현대자동차그룹 SDV/자율주행 전문 기업 (700명)",
+      companyInfo: "현대자동차그룹 SDV/자율주행 전문 기업",
       highlights: [
         "Capora TMS 2.0 서비스 백엔드 개발 및 출시",
         "Capora AI Assistant Multi-Agent Pipeline 아키텍처 설계 및 개발",
@@ -170,7 +170,7 @@ export const resumeData: Resume = {
       endDate: "2025-08",
       isCurrent: false,
       duration: "5년 11개월",
-      companyInfo: "패션 기업 (1600명~, 엔지니어링 300명~)",
+      companyInfo: "패션 커머스 기업",
       highlights: [
         "SageMaker/Bedrock 기반 AI 추천·검색 시스템 구축 (이미지 태깅, 자연어 검색)",
         "전사 AI Gateway 플랫폼 설계 및 개발",
@@ -810,9 +810,9 @@ export const resumeData: Resume = {
       id: "pub-aws-summit",
       title: "무신사, 실시간으로 콘텐츠를 잇다 — 경험을 바꾼 통합 아키텍처 이야기",
       type: "conference",
-      publisher: "AWS Summit Seoul 2025",
+      publisher: "AWS Summit Seoul",
       date: "2025",
-      url: "https://aws.amazon.com/ko/events/summits/seoul/",
+      url: "https://kr.linkedin.com/posts/musinsacom_aws-summit-seoul-%EB%B0%9C%ED%91%9C%EB%A5%BC-%EA%BF%88%EA%BE%B8%EB%8A%94-%EB%8B%B9%EC%8B%A0%EC%97%90%EA%B2%8Cfeat-%EB%B0%9C%ED%91%9C%EC%9E%90-%ED%9B%84%EA%B8%B0-activity-7352940399369334784-gIKE",
       description: "기술로 커뮤니티의 경험을 어떻게 변화시킬 수 있는지 실제 사례와 함께 공유",
     },
     {
@@ -1030,15 +1030,15 @@ export const selectedResumeData: Resume = {
     updatedAt: "2026-08-29",
   },
   introduce: {
-    lead: "16년의 백엔드·플랫폼 경험을 바탕으로, 근거·가드레일·평가 체계를 갖춘 사내 AI 에이전트를 설계하고 운영합니다.",
+    lead: "16년의 백엔드·플랫폼 경험을 바탕으로, 근거·가드레일·평가 체계를 갖춘 기업용 AI 에이전트를 설계하고 운영합니다.",
     principles: [],
     paragraphs: [
-      "현업·비개발자와 문제와 성공 기준을 함께 정의하고, 모델의 판단은 평가로 검증하며 선택과 포기의 근거를 설명합니다. 결정 전에는 비판적으로 토론하되 합의된 방향은 끝까지 실행하고, 해법은 규칙·ADR·운영 문서·기술 공유로 팀에 남깁니다.",
+      "현업·비개발자와 함께 문제와 성공 기준을 정의하고, 모델의 판단은 평가로 검증하며 선택과 포기의 근거를 설명합니다. 결정 전에는 비판적으로 토론하되 합의된 방향은 끝까지 실행하고, 해법은 규칙·ADR·운영 문서·기술 공유로 팀에 남깁니다.",
     ],
     proofPoints: [
-      { value: "16년+", label: "Backend & Platform", detail: "대규모 서비스에서 Agentic AI까지" },
-      { value: "96.9%", label: "Claim precision", detail: "지식 에이전트 100문항 대조 연구 · 2026-08" },
-      { value: "30종", label: "Evaluation suite", detail: "규칙 기반 21종 + LLM 기반 9종" },
+      { value: "10개", label: "에이전트 도메인", detail: "패키지 경계 · 런타임 레지스트리" },
+      { value: "96.9%", label: "주장 정밀도", detail: "지식 에이전트 100문항 대조 연구 · 2026-08" },
+      { value: "139문항", label: "현업 작성 평가 세트", detail: "30종 평가기 · 3회 반복 실행" },
     ],
   },
   skills: [
@@ -1070,8 +1070,8 @@ export const selectedResumeData: Resume = {
       highlights: [
         "10개 에이전트 도메인을 독립적으로 확장하도록 패키지 경계·런타임 레지스트리·A2A/MCP 계약 설계",
         "공통 플랫폼 위에서 근거 검증형 지식 에이전트와 자연어 분석 에이전트의 아키텍처·핵심 구현 주도",
-        "규칙 기반 평가기 21종과 LLM 기반 평가기 9종을 현업이 직접 작성한 평가 세트·배포 게이트에 연결",
-        "FDE 방식으로 현업과 문제 정의부터 협업하고, 현업이 직접 평가 문항을 저작하는 구조로 전환",
+        "현업이 작성한 139개 평가 문항을 30종 평가기와 배포 게이트에 연결해 수용 기준을 반복 측정 가능한 체계로 전환",
+        "FDE 방식으로 현업과 문제·성공 기준을 정의하고, 업무 요구를 출처 표시·재질문·무응답 규칙으로 구체화",
       ],
       skillKeywords: ["Google ADK", "A2A", "MCP", "RAG", "Vertex AI", "Cloud Run", "pgvector"],
     },
@@ -1112,7 +1112,7 @@ export const selectedResumeData: Resume = {
         "생성 전 증거 판정과 생성 후 주장 단위 검증으로 빈 검색 결과의 유창한 오답을 차단",
       ],
       achievements: [
-        { text: "100문항 대조 연구 · 주장 정밀도 96.9% · 근거 없는 주장 1.6% · 오류 주장 미검출 답변 87/100", isHighlight: true },
+        { text: "100문항 대조 연구 · 주장 정밀도 96.9% · 근거 없는 주장 1.6%", isHighlight: true },
       ],
     },
     {

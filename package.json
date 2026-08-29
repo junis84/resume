@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "pdf": "node scripts/generate-pdf.js"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
     "@types/node": "^22.14.1",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.4",

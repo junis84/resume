@@ -14,7 +14,7 @@ function formatDate(date: string) {
 export function CredentialsAndAdditional({ certifications, education, etc }: CredentialsAndAdditionalProps) {
   return (
     <section className="credentials-additional">
-      <SectionTitle>{education.length > 0 ? "Education & Credentials" : "Credentials & Additional"}</SectionTitle>
+      <SectionTitle>{education.length > 0 ? "Education & Credentials" : "Certifications & Additional Information"}</SectionTitle>
       <div className="credentials-grid grid grid-cols-[1.35fr_1fr] gap-6">
         <div className="divide-y divide-stone-100">
           {certifications.map((item) => (

@@ -12,6 +12,7 @@ export interface PDFMergeOptions {
   outputPath?: string;
   pageNumberStart?: number;
   sectionLabels?: readonly string[];
+  footerIdentity?: string | false;
   metadata?: {
     title?: string;
     author?: string;
@@ -98,6 +99,21 @@ async function writeOutput(outputPath: string | undefined, pdfBuffer: Buffer) {
   await fs.writeFile(outputPath, pdfBuffer);
 }
 
+async function applyMetadata(pdfBuffer: Buffer, metadata?: PDFMergeOptions["metadata"]): Promise<Buffer> {
+  if (!metadata) return pdfBuffer;
+
+  // Loading and saving the original Chromium document preserves its tagged
+  // structure, unlike copying pages into a new document, while allowing us to
+  // add recruiter-friendly document metadata.
+  const document = await PDFDocument.load(pdfBuffer);
+  if (metadata.title) document.setTitle(metadata.title);
+  if (metadata.author) document.setAuthor(metadata.author);
+  if (metadata.subject) document.setSubject(metadata.subject);
+  document.setCreator("Junyeong Eom Resume");
+  document.setProducer("Junyeong Eom Resume");
+  return Buffer.from(await document.save());
+}
+
 export async function generatePDF({
   url,
   outputPath,
@@ -119,6 +135,7 @@ export async function generateMergedPDF({
   metadata,
   pageNumberStart,
   sectionLabels,
+  footerIdentity = "Junyeong Eom",
 }: PDFMergeOptions): Promise<Buffer> {
   if (urls.length === 0) {
     throw new Error("병합할 PDF URL이 없습니다.");
@@ -127,6 +144,14 @@ export async function generateMergedPDF({
   const browser = await launchBrowser();
 
   try {
+    if (urls.length === 1 && pageNumberStart === undefined) {
+      // 한 DOM을 Chromium에서 직접 출력하면 구조 태그와 논리적 읽기 순서를
+      // 페이지 복사 없이 그대로 보존할 수 있다.
+      const pdfBuffer = await applyMetadata(await renderPDF(browser, urls[0], true), metadata);
+      await writeOutput(outputPath, pdfBuffer);
+      return pdfBuffer;
+    }
+
     let mergedDocument: PDFDocument;
     const mergedPageLabels: string[] = [];
 
@@ -134,6 +159,8 @@ export async function generateMergedPDF({
       // ATS용 단일 문서는 Chromium이 만든 logical structure/tag를 그대로
       // 보존한다. 새 문서에 페이지만 복사하면 읽기 순서 태그가 유실된다.
       mergedDocument = await PDFDocument.load(await renderPDF(browser, urls[0], true));
+      const pageCount = mergedDocument.getPageCount();
+      mergedPageLabels.push(...Array(pageCount).fill(sectionLabels?.[0] ?? ""));
     } else {
       mergedDocument = await PDFDocument.create();
       for (const [sourceIndex, url] of urls.entries()) {
@@ -160,13 +187,15 @@ export async function generateMergedPDF({
         const size = 7;
         const width = font.widthOfTextAtSize(label, size);
         const section = mergedPageLabels[index];
-        page.drawText(section ? `Junyeong Eom · ${section}` : "Junyeong Eom", {
-          x: 18,
-          y: 10,
-          size,
-          font,
-          color: rgb(0.47, 0.44, 0.42),
-        });
+        if (footerIdentity !== false) {
+          page.drawText(section ? `${footerIdentity} · ${section}` : footerIdentity, {
+            x: 18,
+            y: 10,
+            size,
+            font,
+            color: rgb(0.47, 0.44, 0.42),
+          });
+        }
         page.drawText(label, {
           x: page.getWidth() - width - 18,
           y: 10,

@@ -1,15 +1,17 @@
 import type { Experience } from "@/types/resume";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import type { ResumeLocale } from "@/lib/locale";
 
 interface EarlierExperienceProps {
   data: Experience[];
+  locale?: ResumeLocale;
 }
 
 function formatDate(date: string) {
   return date.replace("-", ".");
 }
 
-export function EarlierExperience({ data }: EarlierExperienceProps) {
+export function EarlierExperience({ data, locale = "ko" }: EarlierExperienceProps) {
   return (
     <section className="section-tertiary earlier-experience">
       <SectionTitle>Earlier Experience</SectionTitle>
@@ -20,7 +22,7 @@ export function EarlierExperience({ data }: EarlierExperienceProps) {
               {experience.company} · {experience.position}
             </span>
             <span className="t-meta text-stone-500 tabular-nums">
-              {formatDate(experience.startDate)}–{formatDate(experience.endDate ?? "현재")}
+              {formatDate(experience.startDate)}–{formatDate(experience.endDate ?? (locale === "en" ? "Present" : "현재"))}
             </span>
           </div>
         ))}

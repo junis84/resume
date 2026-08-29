@@ -1,21 +1,26 @@
 import type { Project } from "@/types/resume";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { TimelineItem } from "@/components/ui/TimelineItem";
+import type { ResumeLocale } from "@/lib/locale";
 
 interface ProjectsProps {
   data: Project[];
+  locale?: ResumeLocale;
+  title?: string;
+  groupByCompany?: boolean;
+  idPrefix?: string;
 }
 
-export function Projects({ data }: ProjectsProps) {
+function ProjectList({ data, locale, idPrefix }: { data: Project[]; locale: ResumeLocale; idPrefix: string }) {
   return (
-    <section className="section-secondary selected-projects">
-      <SectionTitle>Key Projects</SectionTitle>
-      <div className="space-y-1">
+    <div className="space-y-1">
         {data.map((project) => (
           <TimelineItem
             key={project.id}
+            id={`${idPrefix}project-${project.id}`}
             date={project.startDate}
             endDate={project.endDate}
+            locale={locale}
           >
             <div className="project-card">
               <div className="mb-1">
@@ -23,7 +28,7 @@ export function Projects({ data }: ProjectsProps) {
                   <h3 className="t-subhead font-semibold text-navy-900">
                     {project.name}
                   </h3>
-                  {project.portfolioUrl && (
+                  {project.portfolioUrl && locale === "ko" && (
                     <a href={project.portfolioUrl} className="project-link t-meta font-semibold text-navy-700 shrink-0">
                       Case study →
                     </a>
@@ -75,7 +80,40 @@ export function Projects({ data }: ProjectsProps) {
             </div>
           </TimelineItem>
         ))}
-      </div>
+    </div>
+  );
+}
+
+export function Projects({ data, locale = "ko", title = "Key Projects", groupByCompany = false, idPrefix = "" }: ProjectsProps) {
+  const groups = Array.from(
+    data.reduce((result, project) => {
+      const projects = result.get(project.company) ?? [];
+      projects.push(project);
+      result.set(project.company, projects);
+      return result;
+    }, new Map<string, Project[]>()),
+  );
+
+  return (
+    <section id={`${idPrefix}career-projects`} className="section-secondary selected-projects">
+      <SectionTitle>{title}</SectionTitle>
+      {groupByCompany ? (
+        <div className="career-project-groups">
+          {groups.map(([company, projects]) => (
+            <details key={company} className="career-project-group">
+              <summary>
+                <span>{company}</span>
+                <span>{projects.length} {locale === "en" ? (projects.length === 1 ? "project" : "projects") : "개 프로젝트"}</span>
+              </summary>
+              <div className="career-project-list">
+                <ProjectList data={projects} locale={locale} idPrefix={idPrefix} />
+              </div>
+            </details>
+          ))}
+        </div>
+      ) : (
+        <ProjectList data={data} locale={locale} idPrefix={idPrefix} />
+      )}
     </section>
   );
 }

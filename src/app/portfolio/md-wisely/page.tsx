@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CaseMetric } from "@/components/portfolio/CaseMetric";
 import { PortfolioNav } from "@/components/portfolio/PortfolioNav";
+import { SkipLink } from "@/components/ui/SkipLink";
 
 export const metadata: Metadata = {
   title: "Enterprise Knowledge Agent Case Study",
@@ -9,27 +10,28 @@ export const metadata: Metadata = {
 
 const claimComparison = [
   { name: "MD Wisely", coverage: "57.0%", precision: "96.9%", unsupported: "1.6%", clean: "87 / 100" },
-  { name: "Rovo", coverage: "43.5%", precision: "92.2%", unsupported: "4.4%", clean: "71 / 100" },
+  { name: "Atlassian Rovo", coverage: "43.5%", precision: "92.2%", unsupported: "4.4%", clean: "71 / 100" },
   { name: "Gemini Enterprise", coverage: "50.0%", precision: "80.8%", unsupported: "12.1%", clean: "58 / 100" },
 ];
 
 const answerComparison = [
   { name: "MD Wisely", clean: "87 / 100", wrong: "13 / 100", costly: "2 / 100" },
-  { name: "Rovo", clean: "71 / 100", wrong: "29 / 100", costly: "4 / 100" },
+  { name: "Atlassian Rovo", clean: "71 / 100", wrong: "29 / 100", costly: "4 / 100" },
   { name: "Gemini Enterprise", clean: "58 / 100", wrong: "42 / 100", costly: "8 / 100" },
 ];
 
 export default function MdWiselyPage() {
   return (
-    <main className="portfolio-shell">
+    <main className="portfolio-shell" aria-label="Enterprise knowledge agent case study">
+      <SkipLink href="#knowledge-agent-content" label="사례 본문으로 이동" />
       <div className="portfolio-container">
-        <PortfolioNav />
+        <PortfolioNav currentPath="/portfolio/md-wisely" />
 
-        <header className="case-hero py-20 md:py-28">
+        <header id="knowledge-agent-content" className="case-hero py-20 md:py-28">
           <div className="grid grid-cols-[1fr_260px] items-end gap-12 max-md:grid-cols-1">
             <div>
               <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent-700">Case 01 · Enterprise Knowledge Agent</p>
-              <h1 className="mt-5 max-w-4xl text-[clamp(38px,6vw,64px)] font-extrabold leading-[1.08] tracking-[-0.045em] text-navy-900">
+              <h1 className="portfolio-case-title mt-5 max-w-4xl text-[clamp(38px,6vw,64px)] font-extrabold leading-[1.08] tracking-[-0.045em] text-navy-900">
                 근거가 없으면 답하지 않고,<br className="desktop-break" />근거가 있어도 다시 검증합니다.
               </h1>
               <p className="mt-7 max-w-3xl text-[17px] leading-[1.8] text-stone-600">
@@ -47,7 +49,7 @@ export default function MdWiselyPage() {
             <CaseMetric value="1,435" label="Indexed documents" detail="2026.08 활성 문서 기준" />
             <CaseMetric value="96.9%" label="Claim precision" detail="100문항 대조 연구" />
             <CaseMetric value="1.6%" label="Unsupported claims" detail="출처를 찾지 못한 주장" />
-            <CaseMetric value="87/100" label="오류 주장 미검출 답변" detail="완전 정답률이 아닌 안전성 지표" />
+            <CaseMetric value="87/100" label="오류 주장이 발견되지 않은 답변" detail="주장 단위 평가 · 완전 정답률 아님" />
           </div>
         </header>
 
@@ -105,7 +107,7 @@ export default function MdWiselyPage() {
         <section className="case-section border-t border-stone-200 py-20">
           <p className="case-kicker">05 · Measured outcome</p>
           <div className="mt-4 flex items-end justify-between gap-8 max-md:block">
-            <h2 className="case-title max-w-2xl">사용자가 바로 체감하는 답변 단위 안전성을 먼저 비교했습니다.</h2>
+            <h2 className="case-title max-w-2xl">오류 주장 포함 여부를 답변 단위로 비교했습니다.</h2>
             <p className="max-w-md text-right text-[12px] leading-relaxed text-stone-500 max-md:mt-4 max-md:text-left">같은 100개 질문에서 추출한 총 3,069개 답변 주장을 판정한 뒤, 오류가 포함된 답변과 그렇지 않은 답변을 질문 단위로 다시 집계했습니다.</p>
           </div>
           <div className="case-table-wrap mt-8" tabIndex={0} aria-label="답변 단위 비교표, 모바일에서는 좌우로 스크롤할 수 있습니다">
@@ -117,12 +119,12 @@ export default function MdWiselyPage() {
           </div>
           <p className="mt-4 text-[12px] leading-relaxed text-stone-500">이 지표는 “완전 정답”이 아니라 오류·고비용 주장이 검출되지 않은 답변 비율입니다. Rovo 대비 +16%p, Gemini Enterprise 대비 +29%p는 신뢰구간상 유의했습니다. 고비용 오류 2건과 4건의 차이는 이 표본에서 유의하지 않아 Rovo 상대 우위로 주장하지 않습니다.</p>
           <div className="mt-10 grid grid-cols-[240px_1fr] gap-8 rounded-2xl border border-stone-200 bg-white p-6 max-md:grid-cols-1">
-            <div><p className="case-kicker">Retrieval diagnostic</p><strong className="mt-2 block text-3xl font-extrabold text-navy-900">문서 도달 33/40</strong><p className="mt-1 text-[11px] text-stone-500">도달한 문서에서는 33/33 정답</p></div>
+            <div><p className="case-kicker">Retrieval diagnostic · 별도 진단</p><strong className="mt-2 block text-3xl font-extrabold text-navy-900">권위 문서 도달 33/40</strong><p className="mt-1 text-[11px] text-stone-500">도달한 문서에서는 33/33 정답</p></div>
             <div><h3 className="text-lg font-extrabold text-navy-900">전체 답변 정오 판정이 있는 별도 진단에서는, 답안 작성보다 의미가 멀어진 문서를 찾는 단계가 병목이었습니다.</h3><p className="mt-2 text-[13px] leading-relaxed text-stone-600">권위 문서가 하나로 정해진 20쌍에서 MD Wisely는 키워드형 20건 모두 문서 도달·정답, 사례형은 13건 도달·13건 정답이었습니다. 놓친 7건은 문서를 찾지 못했습니다. 세 시스템 전체에서도 도달 35건 중 30건이 정답, 미도달 25건 중 정답은 1건이었습니다. 100문항 본 실험에는 같은 holistic pass/fail 판정이 없으므로 33/40 문서 도달 결과를 전체 정답률로 확대하지 않습니다.</p></div>
           </div>
           <div className="evaluation-loop mt-10 grid grid-cols-[240px_1fr] gap-8 border-l-2 border-emerald-600 pl-6 max-md:grid-cols-1">
-            <div><p className="case-kicker">Evaluation → data loop</p><strong className="mt-2 block text-3xl font-extrabold text-navy-900">849건</strong><p className="mt-1 text-[12px] font-bold text-stone-600">GT·지식원 보강 후보</p></div>
-            <div><h3 className="text-lg font-extrabold text-navy-900">평가는 순위표로 끝나지 않고 GT와 지식원 개선 백로그를 만들었습니다.</h3><p className="mt-2 text-[13px] leading-relaxed text-stone-600">네 구성의 답변에서 GT에는 없지만 문서가 뒷받침한 옳은 사실 후보를 시스템별 합계 849건 수집했습니다. 이 후보를 검토해 GT·문서를 보강한 뒤에는 동일 프로토콜로 다시 측정해야 하며, 보강을 가정한 점수로 기존 결과를 소급 변경하지 않습니다.</p></div>
+            <div><p className="case-kicker">Evaluation → data loop</p><strong className="mt-2 block text-3xl font-extrabold text-navy-900">849건</strong><p className="mt-1 text-[12px] font-bold text-stone-600">정답 기준·지식원 보강 후보</p></div>
+            <div><h3 className="text-lg font-extrabold text-navy-900">평가는 순위표로 끝나지 않고 ground truth(GT)와 지식원 개선 백로그를 만들었습니다.</h3><p className="mt-2 text-[13px] leading-relaxed text-stone-600">네 구성의 답변에서 GT에는 없지만 문서가 뒷받침한 옳은 사실 후보를 시스템별 합계 849건 수집했습니다. 이 후보를 검토해 GT·문서를 보강한 뒤에는 동일 프로토콜로 다시 측정해야 하며, 보강을 가정한 점수로 기존 결과를 소급 변경하지 않습니다.</p></div>
           </div>
           <details className="research-details mt-10 rounded-2xl border border-stone-200 bg-stone-50 p-6">
             <summary className="text-[13px] font-extrabold text-navy-900">연구 부록: GT 기준 클레임 포함률 57.0%의 정의·분모·비교 결과 보기</summary>
@@ -146,7 +148,7 @@ export default function MdWiselyPage() {
         <section className="case-section border-t border-stone-200 py-20">
           <div className="case-contribution-grid grid grid-cols-2 gap-12 max-md:grid-cols-1">
             <div><p className="case-kicker">Ownership & contribution</p><h2 className="case-title">설계에서 평가까지 하나의 피드백 루프로 연결했습니다.</h2><ul className="case-bullets"><li>그래프 제어 흐름과 실패 처리 설계</li><li>RAG 색인·검색·근거 판정 핵심 구현</li><li>A2A와 KB MCP 사이 출처·책임 경계</li><li>대조 연구·품질 지표·운영 문서 체계</li></ul></div>
-              <div><p className="case-kicker">Limits & trade-offs</p><h2 className="case-title">측정되지 않은 효과는 성과로 쓰지 않았습니다.</h2><ul className="case-bullets"><li>현재 New Stack 운영 코퍼스는 Confluence로 한정</li><li>GT 감사에서 defect 22.8%, unverifiable 32.2% 확인</li><li>100문항 본 실험에는 holistic 정답 pass/fail 판정이 없음</li><li>New Stack 각 요소의 독립 기여도는 아직 분리하지 못함</li><li>정확성을 위해 한 번의 수정·재탐색 지연을 허용</li></ul></div>
+              <div><p className="case-kicker">Limits & trade-offs</p><h2 className="case-title">측정되지 않은 효과는 성과로 쓰지 않았습니다.</h2><ul className="case-bullets"><li>현재 운영 코퍼스는 Confluence로 한정</li><li>GT 감사 후 문서로 검증 가능한 claims만 평가 분모에 사용</li><li>100문항 본 실험에는 holistic 정답 pass/fail 판정이 없음</li><li>현행 RAG 구성 각 요소의 독립 기여도는 아직 분리하지 못함</li><li>정확성을 위해 한 번의 수정·재탐색 지연을 허용</li></ul></div>
           </div>
         </section>
 

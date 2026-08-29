@@ -1,15 +1,18 @@
 import type { Header as HeaderType } from "@/types/resume";
+import type { ResumeLocale } from "@/lib/locale";
 
 interface HeaderProps {
   data: HeaderType;
+  locale?: ResumeLocale;
 }
 
-export function Header({ data }: HeaderProps) {
+export function Header({ data, locale = "ko" }: HeaderProps) {
   const {
     nameKo,
     nameEn,
     title,
     email,
+    location,
     githubUrl,
     linkedinUrl,
     portfolioUrl,
@@ -23,14 +26,14 @@ export function Header({ data }: HeaderProps) {
         <div>
           <h1 className="t-name font-bold text-navy-900 tracking-tight">
             {nameKo}
-            <span className="name-en text-stone-500 font-normal ml-2">{nameEn}</span>
+            {nameEn && <span className="name-en text-stone-500 font-normal ml-2">{nameEn}</span>}
           </h1>
           <p className="t-title text-stone-700 mt-1">{title}</p>
         </div>
         {/* 총 경력: 짙은 알약 배지 대신 타이포로만 — 배지는 스티커처럼 보인다 */}
         <div className="text-right">
           <p className="t-meta text-stone-500 uppercase tracking-widest">
-            총 경력
+            {locale === "en" ? "Total experience" : "총 경력"}
           </p>
           <p className="t-title font-semibold text-navy-900 mt-0.5">
             {totalExperience}
@@ -42,6 +45,12 @@ export function Header({ data }: HeaderProps) {
       </div>
 
       <div className="resume-contact flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-3 t-body text-stone-600">
+        {location && (
+          <>
+            <span>{location}</span>
+            <span className="text-stone-300">|</span>
+          </>
+        )}
         <a
           href={`mailto:${email}`}
           className="hover:text-navy-700 transition-colors"
@@ -74,7 +83,7 @@ export function Header({ data }: HeaderProps) {
           <>
             <span className="text-stone-300">|</span>
             <a
-              href={portfolioUrl}
+              href={locale === "en" ? "/portfolio/english" : portfolioUrl}
               className="text-navy-700 hover:text-navy-600 transition-colors font-medium"
             >
               Portfolio

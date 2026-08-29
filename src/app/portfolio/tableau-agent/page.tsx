@@ -2,25 +2,26 @@ import type { Metadata } from "next";
 import { CaseMetric } from "@/components/portfolio/CaseMetric";
 import { PortfolioContact } from "@/components/portfolio/PortfolioContact";
 import { PortfolioNav } from "@/components/portfolio/PortfolioNav";
-import { SeniorOperatingPrinciples } from "@/components/portfolio/SeniorOperatingPrinciples";
+import { SkipLink } from "@/components/ui/SkipLink";
 
 export const metadata: Metadata = {
   title: "Enterprise Analytics Agent Case Study",
-  description: "틀린 숫자가 실행되기 어려운 Tableau 연동 정형 데이터 자연어 분석 에이전트 설계",
+  description: "그럴듯한 오답을 실행 전에 차단하는 Tableau 연동 정형 데이터 자연어 분석 에이전트 설계",
 };
 
 export default function TableauAgentPage() {
   return (
-    <main className="portfolio-shell">
+    <main className="portfolio-shell" aria-label="Enterprise analytics agent case study">
+      <SkipLink href="#analytics-agent-content" label="사례 본문으로 이동" />
       <div className="portfolio-container">
-        <PortfolioNav />
+        <PortfolioNav currentPath="/portfolio/tableau-agent" />
 
-        <header className="case-hero py-20 md:py-28">
+        <header id="analytics-agent-content" className="case-hero py-20 md:py-28">
           <div className="grid grid-cols-[1fr_260px] items-end gap-12 max-md:grid-cols-1">
             <div>
               <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent-700">Case 02 · Enterprise Analytics Agent</p>
-              <h1 className="mt-5 max-w-4xl text-[clamp(38px,6vw,64px)] font-extrabold leading-[1.08] tracking-[-0.045em] text-navy-900">
-                자연어를 SQL로 번역하는 대신,<br className="desktop-break" />틀린 숫자가 실행되기 어렵게 만들었습니다.
+              <h1 className="portfolio-case-title mt-5 max-w-4xl text-[clamp(38px,6vw,64px)] font-extrabold leading-[1.08] tracking-[-0.045em] text-navy-900">
+                자연어를 실행 계획으로 바꾸는 데 그치지 않고,<br className="desktop-break" />그럴듯한 오답을 실행 전에 차단했습니다.
               </h1>
               <p className="mt-7 max-w-3xl text-[17px] leading-[1.8] text-stone-600">
                 한국어 업무 용어, 실제 저장값, 상대 기간, 데이터 최신 시점이 조금만 어긋나도 그럴듯한 오답이 나옵니다. 모델의 생성 능력보다 실행 전 검증과 제한된 교정 경로를 먼저 설계했습니다.
@@ -36,7 +37,7 @@ export default function TableauAgentPage() {
           <div className="mt-12 grid grid-cols-4 gap-3 max-md:grid-cols-2 max-sm:grid-cols-1">
             <CaseMetric value="25" label="Controlled stages" detail="AI 판단은 7단계만 사용" />
             <CaseMetric value="35" label="Code guardrails" detail="순차 24 + 교차 맥락 11" />
-            <CaseMetric value="30" label="Evaluation graders" detail="규칙 기반 21 + LLM 기반 9" />
+            <CaseMetric value="30" label="Evaluators" detail="규칙 기반 21 + LLM 기반 9" />
             <CaseMetric value="139" label="현업 작성 평가 문항" detail="3회 반복 실행으로 안정성 분리" />
           </div>
         </header>
@@ -112,8 +113,7 @@ export default function TableauAgentPage() {
           </div>
         </section>
 
-        <section className="case-section case-senior-principles border-t border-stone-200 py-16">
-          <SeniorOperatingPrinciples compact />
+        <section className="case-section case-contact-only border-t border-stone-200 py-16">
           <PortfolioContact printOnly />
         </section>
 

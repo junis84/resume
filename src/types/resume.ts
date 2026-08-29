@@ -5,6 +5,7 @@ export interface Header {
   title: string;
   email: string;
   phone?: string;
+  location?: string;
   githubUrl: string;
   linkedinUrl?: string;
   portfolioUrl?: string;

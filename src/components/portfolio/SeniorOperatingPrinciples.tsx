@@ -1,7 +1,7 @@
 const principles = [
   {
     title: "제품의 문제를 함께 소유합니다",
-    description: "직무 경계를 두기보다 현업·비개발자와 문제와 성공 기준을 함께 정의합니다.",
+    description: "직무 경계를 두기보다 현업·비개발자와 함께 문제와 성공 기준을 정의합니다.",
     evidence: "FDE · 현업 작성 평가",
   },
   {
@@ -15,7 +15,7 @@ const principles = [
     evidence: "Design review · Disagree and commit",
   },
   {
-    title: "개인의 해법을 팀의 역량으로 만듭니다",
+    title: "해법을 팀의 역량으로 확장합니다",
     description: "표준화·문서·멘토링·스터디와 기술 공유로 해법이 개인에게 머물지 않게 합니다.",
     evidence: "Rules · Open source · 기술 공유",
   },

@@ -1,8 +1,10 @@
 import type { SkillGroup } from "@/types/resume";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import type { ResumeLocale } from "@/lib/locale";
 
 interface CoreCompetenciesProps {
   data: SkillGroup[];
+  locale?: ResumeLocale;
 }
 
 /**
@@ -12,7 +14,7 @@ interface CoreCompetenciesProps {
  *
  * `level: 3`(고급)은 진하게, 그 외는 옅게 렌더해 숙련도를 별도 UI 없이 표현한다.
  */
-export function CoreCompetencies({ data }: CoreCompetenciesProps) {
+export function CoreCompetencies({ data, locale = "ko" }: CoreCompetenciesProps) {
   const hasLevels = data.some((group) => group.skills.some((skill) => skill.level !== undefined));
 
   return (
@@ -50,7 +52,9 @@ export function CoreCompetencies({ data }: CoreCompetenciesProps) {
       </dl>
       {hasLevels && (
         <p className="t-meta text-stone-500 mt-2">
-          진한 표기 = 실무 주력 · 옅은 표기 = 사용 경험
+          {locale === "en"
+            ? "Darker text = primary production experience · lighter text = working experience"
+            : "진한 표기 = 실무 주력 · 옅은 표기 = 사용 경험"}
         </p>
       )}
     </section>
