@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "엄준영 · Senior AI Platform & Backend Engineer",
+    default: "엄준영 · Senior AI & Backend Engineer",
     template: "%s · Junyeong Eom",
   },
   description:

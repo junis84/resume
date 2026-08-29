@@ -4,8 +4,7 @@ export function ResumeToolbar() {
       <a href="/" className="toolbar-link">Resume</a>
       <a href="/career-history" className="toolbar-link">Career History</a>
       <a href="/portfolio" className="toolbar-link">Portfolio</a>
-      <a href="/api/pdf?document=resume-ats" className="toolbar-link toolbar-ats" download="junyeong-eom-resume.pdf">ATS 2p</a>
-      <a href="/api/pdf?document=resume" className="toolbar-primary" download="junyeong-eom-resume-career-history.pdf">Full PDF</a>
+      <a href="/api/pdf?document=resume" className="toolbar-primary" download="junyeong-eom-resume.pdf">Resume PDF</a>
     </nav>
   );
 }

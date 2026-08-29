@@ -22,9 +22,6 @@ export default function CareerHistoryPage() {
       <article className="resume-container career-document">
         <div className="career-summary-block">
           <Header data={careerHistoryData.header} />
-          <div className="career-note no-print t-detail text-stone-600 border-l-2 border-navy-700 pl-3 mb-5">
-            전체 경력과 프로젝트를 보존한 기술 아카이브입니다. 채용 검토용 핵심 정보는 <a href="/" className="font-semibold text-navy-700">2페이지 Resume</a>에서 확인할 수 있습니다.
-          </div>
           <IntroduceSection data={careerHistoryData.introduce} />
           <CoreCompetencies data={careerHistoryData.skills} />
         </div>

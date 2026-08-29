@@ -4,7 +4,7 @@ export const resumeData: Resume = {
   header: {
     nameKo: "엄준영",
     nameEn: "Junyeong Eom",
-    title: "Senior AI Platform & Backend Engineer · Agent Systems & Evaluation",
+    title: "Senior AI & Backend Engineer · Agent Systems & Evaluation",
     email: "e.junis84@gmail.com",
     githubUrl: "https://github.com/junyeong-ai",
     totalExperience: "16년 6개월",
@@ -1025,7 +1025,7 @@ export const selectedResumeData: Resume = {
   header: {
     ...resumeData.header,
     nameEn: "Junyeong Eom",
-    title: "Senior AI Platform & Backend Engineer · Agent Systems & Evaluation",
+    title: "Senior AI & Backend Engineer · Agent Systems & Evaluation",
     portfolioUrl: "/portfolio",
     updatedAt: "2026-08-29",
   },

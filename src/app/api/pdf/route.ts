@@ -5,17 +5,9 @@ export const runtime = "nodejs";
 export const maxDuration = 60;
 
 const documents = {
-  "resume-ats": {
-    paths: ["/"],
-    filename: "junyeong-eom-resume.pdf",
-    title: "Junyeong Eom — Resume",
-    subject: "Two-page ATS resume",
-    pageNumberStart: undefined,
-    sectionLabels: ["Resume"],
-  },
   resume: {
     paths: ["/", "/career-history"],
-    filename: "junyeong-eom-resume-career-history.pdf",
+    filename: "junyeong-eom-resume.pdf",
     title: "Junyeong Eom — Resume & Career History",
     subject: "Resume followed by complete career history",
     pageNumberStart: 2,

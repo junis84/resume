@@ -7,7 +7,7 @@ export function PortfolioContact({ printOnly = false }: PortfolioContactProps) {
     <footer className={`portfolio-contact ${printOnly ? "print-only" : ""}`}>
       <div>
         <p className="font-extrabold text-navy-900">Junyeong Eom</p>
-        <p className="mt-1 text-stone-500">Senior AI Platform & Backend Engineer</p>
+        <p className="mt-1 text-stone-500">Senior AI & Backend Engineer</p>
       </div>
       <div className="portfolio-contact-links">
         <a href="mailto:e.junis84@gmail.com">e.junis84@gmail.com</a>
