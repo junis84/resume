@@ -5,6 +5,7 @@ import { SkillBadge } from "@/components/ui/SkillBadge";
 
 interface ExperienceProps {
   data: ExperienceType[];
+  title?: string;
 }
 
 /**
@@ -28,10 +29,10 @@ function highlightMagnitude(text: string): React.ReactNode {
   );
 }
 
-export function Experience({ data }: ExperienceProps) {
+export function Experience({ data, title = "Experience" }: ExperienceProps) {
   return (
     <section className="section-secondary experience-section">
-      <SectionTitle>Experience</SectionTitle>
+      <SectionTitle>{title}</SectionTitle>
 
       <div className="space-y-1">
         {data.map((exp) => (
