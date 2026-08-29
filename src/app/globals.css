@@ -60,6 +60,17 @@ body {
 }
 
 a { text-underline-offset: 3px; }
+a:focus-visible,
+summary:focus-visible,
+.case-table-wrap:focus-visible {
+  outline: 3px solid rgba(5, 150, 105, 0.45);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Tailwind stone-400(#a8a29e)는 흰 배경의 작은 메타 텍스트에서 2.52:1에
+   그친다. 날짜·갱신일은 장식이 아니므로 stone-500 수준으로 올린다. */
+.text-stone-400 { color: #78716c; }
 
 .print-only { display: none; }
 
@@ -167,6 +178,26 @@ a { text-underline-offset: 3px; }
 .portfolio-resume-link { background: #1e3a5f; color: #fff; }
 .portfolio-resume-link:hover { background: #234b6e; }
 
+.portfolio-contact {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 34px;
+  padding-top: 16px;
+  border-top: 1px solid #e7e5e4;
+  font-size: 11px;
+}
+
+.portfolio-contact-links {
+  display: flex;
+  gap: 16px;
+  color: #2d5a87;
+  font-weight: 650;
+}
+
+.portfolio-contact.print-only { display: none; }
+
 .portfolio-card {
   border: 1px solid #e7e5e4;
   border-radius: 20px;
@@ -230,7 +261,7 @@ a { text-underline-offset: 3px; }
 
 .harness-surface-node > p {
   color: #047857;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -280,7 +311,7 @@ a { text-underline-offset: 3px; }
   display: block;
   margin-top: 10px;
   color: #047857;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 750;
   letter-spacing: 0.02em;
 }
@@ -309,6 +340,9 @@ a { text-underline-offset: 3px; }
   color: #78716c;
   font-weight: 700;
 }
+
+.architecture-node > p:first-child,
+.toolchain-node > p:first-child { font-size: 11px !important; }
 
 .case-metric {
   min-height: 124px;
@@ -395,6 +429,7 @@ a { text-underline-offset: 3px; }
 .trace-list span { color: #57534e; font-size: 13px; line-height: 1.7; }
 
 .case-table-wrap { overflow-x: auto; border: 1px solid #e7e5e4; border-radius: 16px; background: #fff; }
+.table-scroll-hint { display: none; }
 .case-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .case-table th,
 .case-table td { padding: 15px 18px; border-bottom: 1px solid #e7e5e4; text-align: right; }
@@ -476,7 +511,21 @@ a { text-underline-offset: 3px; }
   .desktop-break { display: none; }
   .portfolio-nav { align-items: flex-start; gap: 16px; padding: 14px 0; }
   .portfolio-nav > a span { display: none; }
-  .portfolio-nav > div a:not(:last-child) { display: none; }
+  .portfolio-nav .portfolio-case-link { display: none; }
+  .portfolio-nav > div { gap: 12px; }
+  .portfolio-pdf-link { display: inline-flex; min-height: 36px; align-items: center; }
+  .portfolio-contact { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .portfolio-contact-links { flex-direction: column; gap: 4px; }
+  .table-scroll-hint {
+    display: block;
+    position: sticky;
+    left: 0;
+    width: max-content;
+    padding: 9px 12px 0;
+    color: #78716c;
+    font-size: 11px;
+    font-weight: 650;
+  }
   .case-heading-grid { grid-template-columns: 1fr; gap: 32px; }
   .trace-list li { grid-template-columns: 1fr; gap: 5px; }
   .decision-card { min-height: auto; }
@@ -540,6 +589,11 @@ a { text-underline-offset: 3px; }
   .portfolio-shell .md\:py-28,
   .portfolio-shell .md\:py-32 { padding-top: 12mm !important; padding-bottom: 12mm !important; }
   .portfolio-shell .pb-24 { padding-bottom: 12mm !important; }
+  .portfolio-shell .harness-section { padding-bottom: 0 !important; }
+  .portfolio-shell .harness-section .harness-boundary {
+    margin-top: 3mm !important;
+    padding: 4mm 5mm !important;
+  }
   .portfolio-card,
   .decision-card,
   .case-metric,
@@ -584,6 +638,13 @@ a { text-underline-offset: 3px; }
   .case-senior-principles .senior-principle h3 { font-size: 13px; }
   .case-senior-principles .senior-principle p { font-size: 10px; line-height: 1.55; }
   .case-senior-principles .senior-principle span { font-size: 9px; }
+  .harness-surface-node > p { font-size: 10px; }
+  .case-senior-principles .portfolio-contact {
+    margin-top: 7mm;
+    padding-top: 3mm;
+  }
+  .portfolio-contact.print-only { display: flex !important; }
+  .portfolio-contact-links { flex-direction: row; }
   .print-only { display: block !important; }
   .no-print { display: none !important; }
   a { color: inherit; text-decoration: none; }

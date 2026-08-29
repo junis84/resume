@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { CaseMetric } from "@/components/portfolio/CaseMetric";
+import { PortfolioContact } from "@/components/portfolio/PortfolioContact";
 import { PortfolioNav } from "@/components/portfolio/PortfolioNav";
 import { SeniorOperatingPrinciples } from "@/components/portfolio/SeniorOperatingPrinciples";
 
 export const metadata: Metadata = {
-  title: "Tableau Agent Case Study",
-  description: "틀린 숫자가 실행되기 어려운 Tableau 자연어 분석 에이전트 설계",
+  title: "Enterprise Analytics Agent Case Study",
+  description: "틀린 숫자가 실행되기 어려운 Tableau 연동 정형 데이터 자연어 분석 에이전트 설계",
 };
 
 export default function TableauAgentPage() {
@@ -17,7 +18,7 @@ export default function TableauAgentPage() {
         <header className="case-hero py-20 md:py-28">
           <div className="grid grid-cols-[1fr_260px] items-end gap-12 max-md:grid-cols-1">
             <div>
-              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent-700">Case 02 · Analytics Agent</p>
+              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent-700">Case 02 · Enterprise Analytics Agent</p>
               <h1 className="mt-5 max-w-4xl text-[clamp(38px,6vw,64px)] font-extrabold leading-[1.08] tracking-[-0.045em] text-navy-900">
                 자연어를 SQL로 번역하는 대신,<br className="desktop-break" />틀린 숫자가 실행되기 어렵게 만들었습니다.
               </h1>
@@ -28,6 +29,7 @@ export default function TableauAgentPage() {
             <dl className="space-y-4 border-l border-stone-200 pl-6 text-[13px]">
               <div><dt className="font-bold text-stone-500">Ownership</dt><dd className="mt-1 text-stone-800">Architecture · Core Guardrails · Evaluation</dd></div>
               <div><dt className="font-bold text-stone-500">Period</dt><dd className="mt-1 text-stone-800">2026.04–현재</dd></div>
+              <div><dt className="font-bold text-stone-500">Stage</dt><dd className="mt-1 text-stone-800">사내 운영 검증</dd></div>
               <div><dt className="font-bold text-stone-500">Snapshot</dt><dd className="mt-1 text-stone-800">2026.08</dd></div>
             </dl>
           </div>
@@ -35,7 +37,7 @@ export default function TableauAgentPage() {
             <CaseMetric value="25" label="Controlled stages" detail="AI 판단은 7단계만 사용" />
             <CaseMetric value="35" label="Code guardrails" detail="순차 24 + 교차 맥락 11" />
             <CaseMetric value="30" label="Evaluation graders" detail="규칙 기반 21 + LLM 기반 9" />
-            <CaseMetric value="139" label="현업 저작 평가 문항" detail="3회 반복 실행으로 안정성 분리" />
+            <CaseMetric value="139" label="현업 작성 평가 문항" detail="3회 반복 실행으로 안정성 분리" />
           </div>
         </header>
 
@@ -105,18 +107,19 @@ export default function TableauAgentPage() {
 
         <section className="case-section border-t border-stone-200 py-20">
           <div className="case-contribution-grid grid grid-cols-2 gap-12 max-md:grid-cols-1">
-            <div><p className="case-kicker">Ownership & contribution</p><h2 className="case-title">질문 해석부터 회귀 판정까지 전체 신뢰 경로를 설계했습니다.</h2><ul className="case-bullets"><li>25단계 그래프와 다중 질문 제어 흐름</li><li>값 해소·계획 검증·제한된 교정 루프 핵심 구현</li><li>데이터 스냅샷·출처·최신 시점 검증 규칙</li><li>현업 저작 평가 세트·30종 평가기·반복 실행 품질 게이트</li></ul></div>
+            <div><p className="case-kicker">Ownership & contribution</p><h2 className="case-title">질문 해석부터 회귀 판정까지 전체 신뢰 경로를 설계했습니다.</h2><ul className="case-bullets"><li>25단계 그래프와 다중 질문 제어 흐름</li><li>값 해소·계획 검증·제한된 교정 루프 핵심 구현</li><li>데이터 스냅샷·출처·최신 시점 검증 규칙</li><li>현업 작성 평가 세트·30종 평가기·반복 실행 품질 게이트</li></ul></div>
             <div><p className="case-kicker">Limits & trade-offs</p><h2 className="case-title">엄격한 검증에는 비용과 오탐이 따릅니다.</h2><ul className="case-bullets"><li>교정·재해석은 정확성 대신 지연을 증가시킴</li><li>닫힌 값 사전은 새로운 업무 용어에 보수적으로 반응</li><li>일부 입력값의 출처 정보를 더 앞 단계에서 코드가 소유하도록 개선 중</li><li>운영 데이터소스와 실제 사업 수치는 공개 포트폴리오에서 익명화</li></ul></div>
           </div>
         </section>
 
         <section className="case-section case-senior-principles border-t border-stone-200 py-16">
           <SeniorOperatingPrinciples compact />
+          <PortfolioContact printOnly />
         </section>
 
         <footer className="case-next border-t border-stone-200 py-16">
           <p className="case-kicker">Previous case</p>
-          <a href="/portfolio/md-wisely" className="mt-3 flex items-end justify-between gap-6 no-underline group"><span className="text-[clamp(26px,5vw,48px)] font-extrabold tracking-tight text-navy-900">MD Wisely 지식 에이전트</span><span className="text-3xl text-navy-700 group-hover:-translate-x-1 transition">←</span></a>
+          <a href="/portfolio/md-wisely" className="mt-3 flex items-end justify-between gap-6 no-underline group"><span className="text-[clamp(26px,5vw,48px)] font-extrabold tracking-tight text-navy-900">근거 검증형 사내 지식 에이전트</span><span className="text-3xl text-navy-700 group-hover:-translate-x-1 transition">←</span></a>
         </footer>
       </div>
     </main>

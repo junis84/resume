@@ -1,4 +1,4 @@
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import chromium from "@sparticuz/chromium";
 import puppeteer, { type Browser, type LaunchOptions } from "puppeteer-core";
 
@@ -10,6 +10,8 @@ export interface PDFGenerateOptions {
 export interface PDFMergeOptions {
   urls: string[];
   outputPath?: string;
+  pageNumberStart?: number;
+  sectionLabels?: readonly string[];
   metadata?: {
     title?: string;
     author?: string;
@@ -48,7 +50,7 @@ async function launchBrowser() {
   return puppeteer.launch(await getBrowserLaunchOptions());
 }
 
-async function renderPDF(browser: Browser, url: string): Promise<Buffer> {
+async function renderPDF(browser: Browser, url: string, tagged = false): Promise<Buffer> {
   const page = await browser.newPage();
 
   try {
@@ -73,6 +75,8 @@ async function renderPDF(browser: Browser, url: string): Promise<Buffer> {
       format: "A4",
       printBackground: true,
       preferCSSPageSize: true,
+      tagged,
+      outline: tagged,
       margin: {
         top: "0",
         right: "0",
@@ -113,6 +117,8 @@ export async function generateMergedPDF({
   urls,
   outputPath,
   metadata,
+  pageNumberStart,
+  sectionLabels,
 }: PDFMergeOptions): Promise<Buffer> {
   if (urls.length === 0) {
     throw new Error("병합할 PDF URL이 없습니다.");
@@ -121,17 +127,54 @@ export async function generateMergedPDF({
   const browser = await launchBrowser();
 
   try {
-    const mergedDocument = await PDFDocument.create();
+    let mergedDocument: PDFDocument;
+    const mergedPageLabels: string[] = [];
 
-    for (const url of urls) {
-      const renderedPDF = await renderPDF(browser, url);
-      const sourceDocument = await PDFDocument.load(renderedPDF);
-      const pages = await mergedDocument.copyPages(
-        sourceDocument,
-        sourceDocument.getPageIndices()
-      );
+    if (urls.length === 1) {
+      // ATS용 단일 문서는 Chromium이 만든 logical structure/tag를 그대로
+      // 보존한다. 새 문서에 페이지만 복사하면 읽기 순서 태그가 유실된다.
+      mergedDocument = await PDFDocument.load(await renderPDF(browser, urls[0], true));
+    } else {
+      mergedDocument = await PDFDocument.create();
+      for (const [sourceIndex, url] of urls.entries()) {
+        const renderedPDF = await renderPDF(browser, url);
+        const sourceDocument = await PDFDocument.load(renderedPDF);
+        const pages = await mergedDocument.copyPages(
+          sourceDocument,
+          sourceDocument.getPageIndices()
+        );
 
-      pages.forEach((page) => mergedDocument.addPage(page));
+        pages.forEach((page) => {
+          mergedDocument.addPage(page);
+          mergedPageLabels.push(sectionLabels?.[sourceIndex] ?? "");
+        });
+      }
+    }
+
+    if (pageNumberStart !== undefined) {
+      const pages = mergedDocument.getPages();
+      const font = await mergedDocument.embedFont(StandardFonts.Helvetica);
+      pages.forEach((page, index) => {
+        if (index < pageNumberStart) return;
+        const label = `${index + 1} / ${pages.length}`;
+        const size = 7;
+        const width = font.widthOfTextAtSize(label, size);
+        const section = mergedPageLabels[index];
+        page.drawText(section ? `Junyeong Eom · ${section}` : "Junyeong Eom", {
+          x: 18,
+          y: 10,
+          size,
+          font,
+          color: rgb(0.47, 0.44, 0.42),
+        });
+        page.drawText(label, {
+          x: page.getWidth() - width - 18,
+          y: 10,
+          size,
+          font,
+          color: rgb(0.47, 0.44, 0.42),
+        });
+      });
     }
 
     if (metadata?.title) mergedDocument.setTitle(metadata.title);

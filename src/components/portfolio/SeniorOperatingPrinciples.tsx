@@ -2,7 +2,7 @@ const principles = [
   {
     title: "제품의 문제를 함께 소유합니다",
     description: "직무 경계를 두기보다 현업·비개발자와 문제와 성공 기준을 함께 정의합니다.",
-    evidence: "FDE · 현업 저작 평가",
+    evidence: "FDE · 현업 작성 평가",
   },
   {
     title: "선택과 포기를 설명합니다",

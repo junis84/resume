@@ -37,6 +37,11 @@ export function Projects({ data }: ProjectsProps) {
                   {project.category}
                   {project.role && <><span className="text-stone-300"> · </span>{project.role}</>}
                 </p>
+                {project.stage && (
+                  <p className="project-stage t-meta font-medium text-accent-700 mt-px">
+                    {project.stage}
+                  </p>
+                )}
               </div>
 
               <ul className="space-y-px mb-1">

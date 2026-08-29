@@ -5,11 +5,21 @@ export const runtime = "nodejs";
 export const maxDuration = 60;
 
 const documents = {
+  "resume-ats": {
+    paths: ["/"],
+    filename: "junyeong-eom-resume.pdf",
+    title: "Junyeong Eom — Resume",
+    subject: "Two-page ATS resume",
+    pageNumberStart: undefined,
+    sectionLabels: ["Resume"],
+  },
   resume: {
     paths: ["/", "/career-history"],
     filename: "junyeong-eom-resume-career-history.pdf",
     title: "Junyeong Eom — Resume & Career History",
     subject: "Resume followed by complete career history",
+    pageNumberStart: 2,
+    sectionLabels: ["Resume", "Career History"],
   },
   portfolio: {
     paths: [
@@ -21,7 +31,9 @@ const documents = {
     ],
     filename: "junyeong-eom-ai-engineering-portfolio.pdf",
     title: "Junyeong Eom — AI Engineering Portfolio",
-    subject: "Harness Engineering, MD Wisely Agent, Tableau Agent, and open-source engineering portfolio",
+    subject: "Harness Engineering, enterprise knowledge and analytics agents, and open-source engineering portfolio",
+    pageNumberStart: 0,
+    sectionLabels: ["Overview", "Harness Engineering", "Open Source", "Knowledge Agent", "Analytics Agent"],
   },
 } as const;
 
@@ -52,6 +64,8 @@ export async function GET(request: NextRequest) {
 
     const pdfBuffer = await generateMergedPDF({
       urls: documentUrls,
+      pageNumberStart: document.pageNumberStart,
+      sectionLabels: document.sectionLabels,
       metadata: {
         title: document.title,
         author: "Junyeong Eom",

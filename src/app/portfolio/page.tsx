@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
 import { CaseMetric } from "@/components/portfolio/CaseMetric";
+import { PortfolioContact } from "@/components/portfolio/PortfolioContact";
 import { PortfolioNav } from "@/components/portfolio/PortfolioNav";
 import { SeniorOperatingPrinciples } from "@/components/portfolio/SeniorOperatingPrinciples";
 
 export const metadata: Metadata = {
   title: "AI Engineering Portfolio",
-  description: "AI 하네스 엔지니어링과 MD Wisely·Tableau 에이전트의 설계·구현·평가 사례",
+  description: "AI 하네스 엔지니어링과 근거 검증형 지식 에이전트·정형 데이터 분석 에이전트의 설계·구현·평가 사례",
 };
 
 const cases = [
   {
     href: "/portfolio/md-wisely",
-    eyebrow: "Knowledge Agent · RAG · Evaluation",
+    eyebrow: "Enterprise Knowledge Agent · RAG · Evaluation",
     title: "근거가 없으면 답하지 않고, 근거가 있어도 다시 검증하는 에이전트",
     description: "구조 인식 색인, hybrid retrieval, 생성 전 증거 판정, 생성 후 주장 단위 검증을 하나의 제한된 제어 흐름으로 설계했습니다.",
-    metrics: ["1,435 documents", "Precision 96.9%", "87/100 no detected wrong claim"],
+    metrics: ["1,435 documents", "Claim precision 96.9%", "오류 주장 미검출 87/100"],
   },
   {
     href: "/portfolio/tableau-agent",
-    eyebrow: "Analytics Agent · Guardrails · Continuous Evaluation",
+    eyebrow: "Enterprise Analytics Agent · Guardrails · Evaluation",
     title: "틀린 숫자가 실행되기 어려운 자연어 분석 시스템",
     description: "25단계 중 AI 판단을 7단계로 제한하고, 값 정규화·35개 코드 검증·data epoch로 조용한 오답을 통제했습니다.",
     metrics: ["25 stages", "35 guardrails", "30 graders"],
@@ -72,16 +73,17 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
         <section className="portfolio-hero py-24 md:py-32">
           <p className="mb-5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent-700">Agentic AI · Backend · Evaluation</p>
           <h1 className="max-w-4xl text-[clamp(38px,6vw,68px)] font-extrabold leading-[1.08] tracking-[-0.045em] text-navy-900">
-            AI 에이전트의 가능성을<br />검증 가능한 운영 시스템으로 바꿉니다.
+            AI 에이전트를 데모가 아니라,<br />검증 가능한 운영 시스템으로 만듭니다.
           </h1>
           <p className="mt-7 max-w-3xl text-[17px] leading-[1.8] text-stone-600">
             16년의 백엔드 경험을 바탕으로 AI가 판단할 영역과 코드가 보장할 영역을 분리합니다. 아래 사례는 기술 목록보다 문제·담당 범위·설계 결정·검증 결과를 먼저 설명합니다.
           </p>
           <div className="mt-10 grid max-w-3xl grid-cols-3 gap-3 max-md:grid-cols-1">
             <CaseMetric value="16년+" label="Backend & Platform" detail="대규모 서비스에서 Agentic AI까지" />
-            <CaseMetric value="A2A · MCP" label="Agent interoperability" detail="에이전트와 데이터의 책임 경계를 명시" />
-            <CaseMetric value="30종" label="Continuous evaluation" detail="현업 저작 평가 세트·반복 실행·품질 게이트" />
+            <CaseMetric value="2 systems" label="Enterprise agents" detail="지식 검색과 정형 데이터 분석" />
+            <CaseMetric value="30종" label="Continuous evaluation" detail="현업이 작성한 평가 세트·반복 실행·품질 게이트" />
           </div>
+          <PortfolioContact printOnly />
         </section>
 
         <section className="selected-case-section pb-24">
@@ -122,14 +124,14 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
           <div className="flex items-end justify-between gap-10 max-md:block">
             <div>
               <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-stone-500">AI-native software engineering · Harness</p>
-              <h2 className="mt-2 max-w-4xl text-3xl font-extrabold tracking-tight text-navy-900">바이브 코딩의 속도는 취하고, 결과의 검증은 결정론적 하네스로 통제했습니다.</h2>
+              <h2 className="mt-2 max-w-4xl text-3xl font-extrabold tracking-tight text-navy-900">AI-native 개발의 속도는 취하고, 결과는 결정론적 하네스로 검증했습니다.</h2>
             </div>
             <dl className="shrink-0 border-l border-stone-200 pl-5 text-[11px] leading-relaxed text-stone-500 max-md:mt-5">
               <div><dt className="font-bold text-stone-700">Ownership</dt><dd>Architecture · Rules · Telemetry</dd></div>
               <div className="mt-2"><dt className="font-bold text-stone-700">Snapshot</dt><dd>2026.08</dd></div>
             </dl>
           </div>
-          <p className="mt-5 max-w-5xl text-[14px] leading-[1.75] text-stone-600">AI가 코드의 1차 저자이고 사람이 판정자인 환경에서, 반복 결함을 이름 붙인 규칙으로 전환해 쓰기·커밋·리뷰 단계에서 차단하고 그 결과를 모델에 다시 환류하도록 설계했습니다.</p>
+          <p className="mt-5 max-w-5xl text-[14px] leading-[1.75] text-stone-600">AI가 코드의 1차 저자이고 사람이 판정자인 환경에서, 이른바 바이브 코딩의 반복 결함을 이름 붙인 규칙으로 전환해 쓰기·커밋·리뷰 단계에서 차단하고 그 결과를 모델에 다시 환류하도록 설계했습니다.</p>
           <p className="mt-3 text-[12px] font-bold leading-relaxed text-navy-700">설계·구현 범위 — 컨텍스트 주입 · 규칙 레지스트리 · 훅/게이트 · 독립 리뷰 · 텔레메트리 · 학습 수명주기</p>
 
           <div className="mt-8 grid grid-cols-4 gap-3 max-md:grid-cols-2 max-sm:grid-cols-1">

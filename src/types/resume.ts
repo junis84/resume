@@ -70,6 +70,7 @@ export interface Project {
   achievements?: ProjectAchievement[];
   technologies?: string[];
   role?: string;
+  stage?: string;
   portfolioUrl?: string;
   snapshot?: string;
 }

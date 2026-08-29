@@ -13,9 +13,9 @@ export function EarlierExperience({ data }: EarlierExperienceProps) {
   return (
     <section className="section-tertiary earlier-experience">
       <SectionTitle>Earlier Experience</SectionTitle>
-      <div className="earlier-grid grid grid-cols-2 gap-x-6">
+      <div className="earlier-grid grid grid-cols-1">
         {data.map((experience) => (
-          <div key={experience.id} className="earlier-row flex items-baseline justify-between gap-3 border-b border-stone-100 py-1.5 first:pt-0">
+          <div key={experience.id} className="earlier-row flex items-baseline justify-between gap-3 border-b border-stone-100 py-0.5 first:pt-0">
             <span className="t-detail font-semibold text-navy-900">
               {experience.company} · {experience.position}
             </span>

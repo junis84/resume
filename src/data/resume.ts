@@ -4,7 +4,7 @@ export const resumeData: Resume = {
   header: {
     nameKo: "엄준영",
     nameEn: "Junyeong Eom",
-    title: "AI Platform Engineer · Agent Systems & Evaluation",
+    title: "Senior AI Platform & Backend Engineer · Agent Systems & Evaluation",
     email: "e.junis84@gmail.com",
     githubUrl: "https://github.com/junyeong-ai",
     totalExperience: "16년 6개월",
@@ -30,8 +30,8 @@ export const resumeData: Resume = {
     ],
     paragraphs: [
       "PHP 풀스택으로 시작해 Kotlin/Spring Boot 기반 대규모 트래픽 서비스를 거쳐, 지금은 Gemini Enterprise/Vertex AI 위에서 에이전트 시스템을 설계합니다. 스택이 바뀔 때마다 새로 배워야 했고, 그 과정 자체를 좋아합니다.",
-      "MD사업본부를 위한 AI 에이전트 'MD Wisely'와 Tableau 자연어 분석 에이전트의 아키텍처와 핵심 구현을 맡고 있습니다. 2026년 8월 기준 활성 위키 문서 1,435건을 지식베이스로 운영하며, 규칙 기반 평가기 21종과 LLM 기반 평가기 9종으로 변경의 효과를 검증합니다.",
-      "AI 에이전트가 사용하기 좋은 Rust 기반 CLI 도구들(symora, nodex, hatel 등)을 오픈소스로 공개하고 MCP·Claude Code skill로 연결했습니다. 비개발자가 명세만으로 사내 웹사이트를 만들고 배포할 수 있는 플랫폼(Webloom)도 만들어, 작업자와 무관하게 같은 기준을 적용하는 품질 게이트를 팀에 도입했습니다.",
+      "MD사업본부용 근거 검증형 지식 에이전트(MD Wisely)와 Tableau 연동 자연어 분석 에이전트의 아키텍처와 핵심 구현을 맡고 있습니다. 2026년 8월 기준 활성 위키 문서 1,435건을 지식베이스로 운영하며, 규칙 기반 평가기 21종과 LLM 기반 평가기 9종으로 변경의 효과를 검증합니다.",
+      "AI 에이전트가 사용하기 좋은 Rust 기반 CLI 도구들(symora, nodex, hatel 등)을 오픈소스로 공개하고 MCP·Claude Code skill로 연결했습니다. 비개발자가 명세만으로 사내 웹사이트를 만들고 배포하는 AI-assisted internal app platform(Webloom)도 만들어, 작업자와 무관하게 같은 기준을 적용하는 품질 게이트를 팀에 도입했습니다.",
       "문제는 대부분 내 코드 안이 아니라 다른 영역과 만나는 경계에서 생깁니다. 그래서 맡은 범위 밖도 계속 따라가려 하는 편이고, 백엔드의 깊이 위에 AI·데이터·인프라를 함께 보며 일합니다.",
     ],
   },
@@ -119,15 +119,15 @@ export const resumeData: Resume = {
       id: "exp-oliveyoung",
       company: "CJ 올리브영",
       companyEn: "CJ OliveYoung",
-      position: "AI Engineer (FDE)",
+      position: "AI Engineer · Forward Deployed Engineering (FDE)",
       department: "AX 엔지니어링팀",
       startDate: "2026-03",
       isCurrent: true,
       duration: "5개월",
       companyInfo: "헬스&뷰티 리테일 기업 · AI Transformation 전담 조직",
       highlights: [
-        "Gemini Enterprise / Vertex AI Agent Engine 기반 사내 Agentic AI 플랫폼(AIX Platform) 설계·구축",
-        "MD사업본부 지식 에이전트 'MD Wisely'와 Tableau 자연어 분석 에이전트의 아키텍처·핵심 구현",
+        "Gemini Enterprise / Vertex AI Agent Engine 기반 Enterprise Agent Platform(사내명 AIX) 설계·구축",
+        "근거 검증형 사내 지식 에이전트(MD Wisely)와 Tableau 연동 자연어 분석 에이전트의 아키텍처·핵심 구현",
         "문서 근거와 정형 데이터를 연결하는 A2A 계약 및 에이전트 간 통합 경계 설계",
         "규칙 기반 평가기 21종 + LLM 기반 평가기 9종으로 구성한 평가 체계와 배포 품질 게이트 구축",
         "비개발자가 스펙으로 사내 웹사이트를 만들고 배포하는 플랫폼(Webloom) 및 하네스 설계",
@@ -263,7 +263,7 @@ export const resumeData: Resume = {
   projects: [
     {
       id: "proj-aix-platform",
-      name: "AIX Platform — 전사 Agentic AI 플랫폼 구축",
+      name: "Enterprise Agent Platform & Evaluation — 사내명 AIX",
       company: "CJ 올리브영",
       companyEn: "CJ OliveYoung",
       startDate: "2026-03",
@@ -282,7 +282,7 @@ export const resumeData: Resume = {
     },
     {
       id: "proj-md-wisely",
-      name: "MD Wisely — 멀티모달 RAG 지식 에이전트 개발",
+      name: "근거 검증형 사내 지식 에이전트 — MD Wisely",
       company: "CJ 올리브영",
       companyEn: "CJ OliveYoung",
       startDate: "2026-04",
@@ -302,7 +302,7 @@ export const resumeData: Resume = {
     },
     {
       id: "proj-tableau-agent",
-      name: "Tableau 자연어 분석 에이전트 설계 및 개발",
+      name: "정형 데이터 자연어 분석 에이전트 설계·개발 — Tableau 연동",
       company: "CJ 올리브영",
       companyEn: "CJ OliveYoung",
       startDate: "2026-04",
@@ -341,7 +341,7 @@ export const resumeData: Resume = {
     },
     {
       id: "proj-webloom",
-      name: "Webloom — 바이브 코딩 플랫폼 및 AI 하네스 엔지니어링",
+      name: "AI-assisted Internal App Delivery Platform — Webloom",
       company: "CJ 올리브영",
       companyEn: "CJ OliveYoung",
       startDate: "2026-04",
@@ -1025,19 +1025,19 @@ export const selectedResumeData: Resume = {
   header: {
     ...resumeData.header,
     nameEn: "Junyeong Eom",
-    title: "AI Platform Engineer · Agent Systems & Evaluation",
+    title: "Senior AI Platform & Backend Engineer · Agent Systems & Evaluation",
     portfolioUrl: "/portfolio",
     updatedAt: "2026-08-29",
   },
   introduce: {
-    lead: "16년의 백엔드·플랫폼 경험을 바탕으로, 근거와 평가 체계를 갖춘 사내 AI 에이전트를 설계하고 운영합니다.",
+    lead: "16년의 백엔드·플랫폼 경험을 바탕으로, 근거·가드레일·평가 체계를 갖춘 사내 AI 에이전트를 설계하고 운영합니다.",
     principles: [],
     paragraphs: [
-      "현업·비개발자와 문제를 함께 정의하고, 모델의 판단은 평가로 검증하며 선택과 포기의 근거를 설명합니다. 결정 전에는 비판적으로 토론하되 합의된 방향은 끝까지 실행하고, 해법은 표준·문서·멘토링·기술 공유로 팀에 남깁니다.",
+      "현업·비개발자와 문제와 성공 기준을 함께 정의하고, 모델의 판단은 평가로 검증하며 선택과 포기의 근거를 설명합니다. 결정 전에는 비판적으로 토론하되 합의된 방향은 끝까지 실행하고, 해법은 규칙·ADR·운영 문서·기술 공유로 팀에 남깁니다.",
     ],
     proofPoints: [
       { value: "16년+", label: "Backend & Platform", detail: "대규모 서비스에서 Agentic AI까지" },
-      { value: "96.9%", label: "Claim precision", detail: "MD Wisely 100문항 대조 연구 · 2026-08" },
+      { value: "96.9%", label: "Claim precision", detail: "지식 에이전트 100문항 대조 연구 · 2026-08" },
       { value: "30종", label: "Evaluation suite", detail: "규칙 기반 21종 + LLM 기반 9종" },
     ],
   },
@@ -1059,8 +1059,8 @@ export const selectedResumeData: Resume = {
     {
       category: "Platform",
       skills: [
-        { name: "GCP / Vertex AI" }, { name: "AWS / Bedrock" }, { name: "Cloud Run" }, { name: "Kubernetes" },
-        { name: "OpenTofu / Terraform" }, { name: "OpenTelemetry" }, { name: "Datadog" }, { name: "Argo CD" },
+        { name: "GCP / Vertex AI" }, { name: "AWS / Bedrock" }, { name: "Cloud Run" },
+        { name: "OpenTofu / Terraform" }, { name: "OpenTelemetry" }, { name: "Datadog" }, { name: "Kubernetes / Argo CD" },
       ],
     },
   ],
@@ -1069,8 +1069,8 @@ export const selectedResumeData: Resume = {
       ...experienceById("exp-oliveyoung"),
       highlights: [
         "10개 에이전트 도메인을 독립적으로 확장하도록 패키지 경계·런타임 레지스트리·A2A/MCP 계약 설계",
-        "MD Wisely와 Tableau 자연어 분석 에이전트의 아키텍처 및 핵심 구현 주도",
-        "규칙 기반 평가기 21종과 LLM 기반 평가기 9종을 현업 저작 평가 세트·배포 게이트에 연결",
+        "공통 플랫폼 위에서 근거 검증형 지식 에이전트와 자연어 분석 에이전트의 아키텍처·핵심 구현 주도",
+        "규칙 기반 평가기 21종과 LLM 기반 평가기 9종을 현업이 직접 작성한 평가 세트·배포 게이트에 연결",
         "FDE 방식으로 현업과 문제 정의부터 협업하고, 현업이 직접 평가 문항을 저작하는 구조로 전환",
       ],
       skillKeywords: ["Google ADK", "A2A", "MCP", "RAG", "Vertex AI", "Cloud Run", "pgvector"],
@@ -1097,28 +1097,13 @@ export const selectedResumeData: Resume = {
   ],
   projects: [
     {
-      id: "selected-aix-eval",
-      name: "AIX Platform & Evaluation System",
-      company: "CJ 올리브영",
-      startDate: "2026-03",
-      category: "Agentic AI Platform",
-      role: "Architecture · Core Backend · Evaluation",
-      descriptions: [
-        "에이전트 10개 도메인을 패키지 단위로 격리하고 정적 검사로 의존 경계를 강제",
-        "보안 요건에 따라 관리형 런타임과 Cloud Run A2A를 선택하고 MCP로 사내 데이터 경계를 표준화",
-        "30종 평가 카탈로그 가운데 20종은 배포 판정, 10종은 관찰 지표로 분리해 변경 위험을 통제",
-      ],
-      achievements: [
-        { text: "주관적 인상 평가를 현업 저작 평가 세트·반복 실행·통계적 비교가 있는 배포 품질 게이트로 전환", isHighlight: true },
-      ],
-    },
-    {
       id: "selected-md-wisely",
-      name: "MD Wisely — 근거 검증형 지식 에이전트",
+      name: "근거 검증형 사내 지식 에이전트 — MD Wisely",
       company: "CJ 올리브영",
       startDate: "2026-04",
       category: "RAG · Knowledge Agent",
       role: "Architecture · RAG · Evaluation",
+      stage: "사내 운영 환경 · 2026.08 측정",
       portfolioUrl: "/portfolio/md-wisely",
       snapshot: "2026-08",
       descriptions: [
@@ -1127,16 +1112,17 @@ export const selectedResumeData: Resume = {
         "생성 전 증거 판정과 생성 후 주장 단위 검증으로 빈 검색 결과의 유창한 오답을 차단",
       ],
       achievements: [
-        { text: "100문항 대조 연구 · precision 96.9% · 근거 없는 주장 1.6% · 오류·고비용 주장 미검출 답변 87/100", isHighlight: true },
+        { text: "100문항 대조 연구 · 주장 정밀도 96.9% · 근거 없는 주장 1.6% · 오류 주장 미검출 답변 87/100", isHighlight: true },
       ],
     },
     {
       id: "selected-tableau",
-      name: "Tableau 자연어 분석 에이전트",
+      name: "정형 데이터 자연어 분석 에이전트 — Tableau 연동",
       company: "CJ 올리브영",
       startDate: "2026-04",
       category: "Data Analytics Agent",
       role: "Architecture · Guardrails · Evaluation",
+      stage: "사내 운영 검증 · 2026.08 측정",
       portfolioUrl: "/portfolio/tableau-agent",
       snapshot: "2026-08",
       descriptions: [
@@ -1145,7 +1131,25 @@ export const selectedResumeData: Resume = {
         "data epoch fingerprint로 데이터 재적재와 모델 회귀를 구분하고 출처·최신 시점을 코드가 표기",
       ],
       achievements: [
-        { text: "현업 저작 문항 139개 반복 평가 · 3회 모두 통과 121 · 판정 변동 14 · 지속 실패 4", isHighlight: true },
+        { text: "현업이 작성한 139개 문항 반복 평가 · 3회 모두 통과 121 · 판정 변동 14 · 지속 실패 4", isHighlight: true },
+      ],
+    },
+    {
+      id: "selected-content-platform",
+      name: "콘텐츠 통합 플랫폼 현대화 — PHP에서 Kotlin까지",
+      company: "무신사",
+      startDate: "2023-06",
+      endDate: "2023-12",
+      category: "Backend · Platform Modernization",
+      role: "Backend Architecture · Migration · Event Streaming",
+      stage: "프로덕션 출시 · 공개 발표 사례",
+      descriptions: [
+        "분산된 스타일 콘텐츠를 하나의 플랫폼으로 통합하고 레거시 PHP 서비스를 Kotlin으로 전환",
+        "Kafka Connect·Kafka Streams 기반 실시간 데이터 통합과 이벤트 중심 서비스 경계 설계",
+        "AWS EKS 운영·CI/CD·회귀 테스트를 함께 정비해 기능 보존과 점진적 전환을 지원",
+      ],
+      achievements: [
+        { text: "통합 아키텍처와 전환 과정은 AWS Summit Seoul 2025에서 공개 사례로 발표", isHighlight: true },
       ],
     },
   ],
@@ -1174,7 +1178,7 @@ export const selectedResumeData: Resume = {
       kind: "membership",
     },
   ],
-  education: resumeData.education,
+  education: [],
   etc: resumeData.etc.filter((item) => item.id === "etc-military"),
 };
 

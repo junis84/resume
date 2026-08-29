@@ -3,8 +3,8 @@ import { CaseMetric } from "@/components/portfolio/CaseMetric";
 import { PortfolioNav } from "@/components/portfolio/PortfolioNav";
 
 export const metadata: Metadata = {
-  title: "MD Wisely Case Study",
-  description: "근거 검증형 지식 에이전트 MD Wisely의 색인·서빙·평가 설계",
+  title: "Enterprise Knowledge Agent Case Study",
+  description: "근거 검증형 사내 지식 에이전트 MD Wisely의 색인·서빙·평가 설계",
 };
 
 const claimComparison = [
@@ -28,7 +28,7 @@ export default function MdWiselyPage() {
         <header className="case-hero py-20 md:py-28">
           <div className="grid grid-cols-[1fr_260px] items-end gap-12 max-md:grid-cols-1">
             <div>
-              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent-700">Case 01 · Knowledge Agent</p>
+              <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-accent-700">Case 01 · Enterprise Knowledge Agent</p>
               <h1 className="mt-5 max-w-4xl text-[clamp(38px,6vw,64px)] font-extrabold leading-[1.08] tracking-[-0.045em] text-navy-900">
                 근거가 없으면 답하지 않고,<br className="desktop-break" />근거가 있어도 다시 검증합니다.
               </h1>
@@ -39,6 +39,7 @@ export default function MdWiselyPage() {
             <dl className="space-y-4 border-l border-stone-200 pl-6 text-[13px]">
               <div><dt className="font-bold text-stone-500">Ownership</dt><dd className="mt-1 text-stone-800">Architecture · Core RAG · Evaluation</dd></div>
               <div><dt className="font-bold text-stone-500">Period</dt><dd className="mt-1 text-stone-800">2026.04–현재</dd></div>
+              <div><dt className="font-bold text-stone-500">Stage</dt><dd className="mt-1 text-stone-800">사내 운영 환경</dd></div>
               <div><dt className="font-bold text-stone-500">Snapshot</dt><dd className="mt-1 text-stone-800">2026.08</dd></div>
             </dl>
           </div>
@@ -46,7 +47,7 @@ export default function MdWiselyPage() {
             <CaseMetric value="1,435" label="Indexed documents" detail="2026.08 활성 문서 기준" />
             <CaseMetric value="96.9%" label="Claim precision" detail="100문항 대조 연구" />
             <CaseMetric value="1.6%" label="Unsupported claims" detail="출처를 찾지 못한 주장" />
-            <CaseMetric value="87/100" label="No detected wrong claim" detail="오류·고비용 주장 미검출" />
+            <CaseMetric value="87/100" label="오류 주장 미검출 답변" detail="완전 정답률이 아닌 안전성 지표" />
           </div>
         </header>
 
@@ -107,16 +108,17 @@ export default function MdWiselyPage() {
             <h2 className="case-title max-w-2xl">사용자가 바로 체감하는 답변 단위 안전성을 먼저 비교했습니다.</h2>
             <p className="max-w-md text-right text-[12px] leading-relaxed text-stone-500 max-md:mt-4 max-md:text-left">같은 100개 질문에서 추출한 총 3,069개 답변 주장을 판정한 뒤, 오류가 포함된 답변과 그렇지 않은 답변을 질문 단위로 다시 집계했습니다.</p>
           </div>
-          <div className="case-table-wrap mt-8">
+          <div className="case-table-wrap mt-8" tabIndex={0} aria-label="답변 단위 비교표, 모바일에서는 좌우로 스크롤할 수 있습니다">
+            <p className="table-scroll-hint" aria-hidden="true">표를 좌우로 밀어 전체 항목 보기 →</p>
             <table className="case-table">
-              <thead><tr><th>System</th><th>No detected wrong claim</th><th>With wrong claim</th><th>With costly error</th></tr></thead>
+              <thead><tr><th>System</th><th>오류 주장 미검출</th><th>오류 주장 포함</th><th>고비용 오류 포함</th></tr></thead>
               <tbody>{answerComparison.map((row) => <tr key={row.name} className={row.name === "MD Wisely" ? "is-primary" : ""}><th>{row.name}</th><td>{row.clean}</td><td>{row.wrong}</td><td>{row.costly}</td></tr>)}</tbody>
             </table>
           </div>
           <p className="mt-4 text-[12px] leading-relaxed text-stone-500">이 지표는 “완전 정답”이 아니라 오류·고비용 주장이 검출되지 않은 답변 비율입니다. Rovo 대비 +16%p, Gemini Enterprise 대비 +29%p는 신뢰구간상 유의했습니다. 고비용 오류 2건과 4건의 차이는 이 표본에서 유의하지 않아 Rovo 상대 우위로 주장하지 않습니다.</p>
           <div className="mt-10 grid grid-cols-[240px_1fr] gap-8 rounded-2xl border border-stone-200 bg-white p-6 max-md:grid-cols-1">
-            <div><p className="case-kicker">Answer-level diagnostic</p><strong className="mt-2 block text-3xl font-extrabold text-navy-900">33/40 · 82.5%</strong><p className="mt-1 text-[11px] text-stone-500">키워드형 20/20 + 사례형 13/20</p></div>
-            <div><h3 className="text-lg font-extrabold text-navy-900">전체 답변 정오 판정이 있는 별도 진단에서는, 답안 작성보다 의미가 멀어진 문서를 찾는 단계가 병목이었습니다.</h3><p className="mt-2 text-[13px] leading-relaxed text-stone-600">권위 문서가 하나로 정해진 20쌍에서 MD Wisely는 키워드형 20건 모두 문서 도달·정답, 사례형은 13건 도달·13건 정답이었습니다. 놓친 7건은 문서를 찾지 못했습니다. 세 시스템 전체에서도 도달 35건 중 30건이 정답, 미도달 25건 중 정답은 1건이었습니다. 100문항 본 실험에는 같은 holistic pass/fail 판정이 없으므로 82.5%를 전체 정답률로 확대하지 않습니다.</p></div>
+            <div><p className="case-kicker">Retrieval diagnostic</p><strong className="mt-2 block text-3xl font-extrabold text-navy-900">문서 도달 33/40</strong><p className="mt-1 text-[11px] text-stone-500">도달한 문서에서는 33/33 정답</p></div>
+            <div><h3 className="text-lg font-extrabold text-navy-900">전체 답변 정오 판정이 있는 별도 진단에서는, 답안 작성보다 의미가 멀어진 문서를 찾는 단계가 병목이었습니다.</h3><p className="mt-2 text-[13px] leading-relaxed text-stone-600">권위 문서가 하나로 정해진 20쌍에서 MD Wisely는 키워드형 20건 모두 문서 도달·정답, 사례형은 13건 도달·13건 정답이었습니다. 놓친 7건은 문서를 찾지 못했습니다. 세 시스템 전체에서도 도달 35건 중 30건이 정답, 미도달 25건 중 정답은 1건이었습니다. 100문항 본 실험에는 같은 holistic pass/fail 판정이 없으므로 33/40 문서 도달 결과를 전체 정답률로 확대하지 않습니다.</p></div>
           </div>
           <div className="evaluation-loop mt-10 grid grid-cols-[240px_1fr] gap-8 border-l-2 border-emerald-600 pl-6 max-md:grid-cols-1">
             <div><p className="case-kicker">Evaluation → data loop</p><strong className="mt-2 block text-3xl font-extrabold text-navy-900">849건</strong><p className="mt-1 text-[12px] font-bold text-stone-600">GT·지식원 보강 후보</p></div>
@@ -130,9 +132,10 @@ export default function MdWiselyPage() {
               <div className="rounded-xl bg-white p-4"><strong className="block text-xl text-navy-900">−434</strong><span className="mt-1 block text-[11px] leading-relaxed text-stone-500">결함 180 + 검증 불가 254</span></div>
               <div className="rounded-xl bg-white p-4"><strong className="block text-xl text-navy-900">356</strong><span className="mt-1 block text-[11px] leading-relaxed text-stone-500">문서로 도달 가능한 분모</span></div>
             </div>
-            <div className="case-table-wrap mt-5">
+            <div className="case-table-wrap mt-5" tabIndex={0} aria-label="주장 단위 비교표, 모바일에서는 좌우로 스크롤할 수 있습니다">
+              <p className="table-scroll-hint" aria-hidden="true">표를 좌우로 밀어 전체 항목 보기 →</p>
               <table className="case-table">
-                <thead><tr><th>System</th><th>GT-relative claim coverage</th><th>Precision</th><th>Unsupported</th><th>No detected wrong claim</th></tr></thead>
+                <thead><tr><th>System</th><th>GT-relative claim coverage</th><th>Precision</th><th>Unsupported</th><th>오류 주장 미검출</th></tr></thead>
                 <tbody>{claimComparison.map((row) => <tr key={row.name} className={row.name === "MD Wisely" ? "is-primary" : ""}><th>{row.name}</th><td>{row.coverage}</td><td>{row.precision}</td><td>{row.unsupported}</td><td>{row.clean}</td></tr>)}</tbody>
               </table>
             </div>
@@ -149,7 +152,7 @@ export default function MdWiselyPage() {
 
         <footer className="case-next border-t border-stone-200 py-16">
           <p className="case-kicker">Next case</p>
-          <a href="/portfolio/tableau-agent" className="mt-3 flex items-end justify-between gap-6 no-underline group"><span className="text-[clamp(26px,5vw,48px)] font-extrabold tracking-tight text-navy-900">Tableau 자연어 분석 에이전트</span><span className="text-3xl text-navy-700 group-hover:translate-x-1 transition">→</span></a>
+          <a href="/portfolio/tableau-agent" className="mt-3 flex items-end justify-between gap-6 no-underline group"><span className="text-[clamp(26px,5vw,48px)] font-extrabold tracking-tight text-navy-900">정형 데이터 자연어 분석 에이전트</span><span className="text-3xl text-navy-700 group-hover:translate-x-1 transition">→</span></a>
         </footer>
       </div>
     </main>
