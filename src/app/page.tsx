@@ -27,7 +27,7 @@ export default function ResumePage() {
         <Header data={selectedResumeData.header} />
         <IntroduceSection data={selectedResumeData.introduce} />
         <CoreCompetencies data={selectedResumeData.skills} />
-        <Experience data={selectedResumeData.experience} title="Recent Experience" />
+        <Experience data={selectedResumeData.experience} title="Professional Experience" />
         <PageFooter page={1} />
       </article>
 
