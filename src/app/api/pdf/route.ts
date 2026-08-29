@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateMergedPDF } from "@/lib/pdf";
 
+export const runtime = "nodejs";
+export const maxDuration = 60;
+
 const documents = {
   resume: {
     paths: ["/", "/career-history"],

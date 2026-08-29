@@ -1,5 +1,6 @@
 import { PDFDocument } from "pdf-lib";
-import puppeteer, { type Browser } from "puppeteer";
+import chromium from "@sparticuz/chromium";
+import puppeteer, { type Browser, type LaunchOptions } from "puppeteer-core";
 
 export interface PDFGenerateOptions {
   url: string;
@@ -16,13 +17,35 @@ export interface PDFMergeOptions {
   };
 }
 
-function getExecutablePath() {
-  return (
+async function getBrowserLaunchOptions(): Promise<LaunchOptions> {
+  const localExecutablePath =
     process.env.PUPPETEER_EXECUTABLE_PATH ||
     (process.platform === "darwin"
       ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-      : undefined)
-  );
+      : undefined);
+
+  if (localExecutablePath) {
+    return {
+      headless: true,
+      executablePath: localExecutablePath,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    };
+  }
+
+  chromium.setGraphicsMode = false;
+
+  return {
+    headless: "shell",
+    executablePath: await chromium.executablePath(),
+    args: await puppeteer.defaultArgs({
+      args: chromium.args,
+      headless: "shell",
+    }),
+  };
+}
+
+async function launchBrowser() {
+  return puppeteer.launch(await getBrowserLaunchOptions());
 }
 
 async function renderPDF(browser: Browser, url: string): Promise<Buffer> {
@@ -75,11 +98,7 @@ export async function generatePDF({
   url,
   outputPath,
 }: PDFGenerateOptions): Promise<Buffer> {
-  const browser = await puppeteer.launch({
-    headless: true,
-    executablePath: getExecutablePath(),
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+  const browser = await launchBrowser();
 
   try {
     const pdfBuffer = await renderPDF(browser, url);
@@ -99,11 +118,7 @@ export async function generateMergedPDF({
     throw new Error("병합할 PDF URL이 없습니다.");
   }
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    executablePath: getExecutablePath(),
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+  const browser = await launchBrowser();
 
   try {
     const mergedDocument = await PDFDocument.create();
